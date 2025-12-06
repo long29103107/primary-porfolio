@@ -1,0 +1,348 @@
+{
+  "basics": {
+    "name": "Nguyen Hoang Long",
+    "label": "Software Engineer",
+    "image": "/avatar.jpg",
+    "email": "long29103107@gmail.com",
+    "phone": "+84 344 066 288",
+    "url": "https://longnguyen.dev",
+    "summary": "I am a .NET Developer with {{ yoe }} years of experience, passionate about learning new technologies and applying best practices. I am hardworking, self-motivated, and responsible, and I aim to grow into a senior developer while contributing meaningful value to your organization.",
+    "theme": "default",
+    "location": {
+      "address": "58/5D, Street No. 9, Linh Tay Ward, Thu Duc City",
+      "postalCode": "10000",
+      "city": "Ho Chi Minh City",
+      "countryCode": "VN",
+      "region": "Vietnam"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "longnguyen29103107",
+        "url": "https://www.linkedin.com/in/longnguyen29103107"
+      },
+      {
+        "network": "GitHub",
+        "username": "long29103107",
+        "url": "https://github.com/long29103107"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "BLogic Systems",
+      "position": ".NET Developer",
+      "location_type": "On site",
+      "location": "Ho Chi Minh City, Vietnam",
+      "url": "https://www.blogicsystems.com",
+      "startDate": "2025-03-01",
+      "endDate": null,
+      "summary": "<b>BLogic Dashboard</b> is a support application designed for <b>POS systems</b>. It helps agents manage merchants through a hierarchical model, create support tickets, and generate registration forms using <b>DocuSign</b>. It also integrates with external systems such as <b>TSYS</b> to handle legal documentation.",
+      "highlights": [
+        "Developing and maintaining web applications using .NET, C#, and SQL Server. Collaborating with the team to implement new features and fix bugs."
+      ],
+      "responsibilities": [
+        "Analyzed and clarified customer requirements, then planned development tasks for each module.",
+        "Built the codebase, designed the database schema, and developed new modules with optimized SQL queries.",
+        "Set up and maintained CI/CD pipelines using Jenkins, deploying applications to a Linux server environment.",
+        "Integrated the system with TSYS payment processing services."
+      ],
+      "skills": [
+        "ASP.NET Core API",
+        "RESTful API",
+        "API Versioning",
+        "Razor",
+        "Dapper",
+        "SignalR",
+        "Quartz",
+        "RabbitMQ",
+        "DocuSign",
+        "SQL Server",
+        "Design Patterns",
+        "Amazon S3",
+        "Seq Logging",
+        "Webhooks"
+      ]
+    },
+    {
+      "name": "Silicon Stack",
+      "position": ".NET Developer",
+      "location_type": "Hybrid",
+      "location": "Ho Chi Minh City, Vietnam",
+      "url": "https://siliconstack.com.au/",
+      "startDate": "2024-09-01",
+      "endDate": "2025-03-01",
+      "summary": "Assisting in the development and maintenance of software applications using Python and Django. Collaborating with cross-functional teams to ensure quality and timely delivery of software solutions.",
+      "highlights": [
+        "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
+      ],
+      "responsibilities": [
+        "Developed and maintained backend services using Python and Django.",
+        "Worked closely with front-end developers to integrate user-facing elements with server-side logic.",
+        "Participated in daily stand-ups and bi-weekly sprint planning meetings to ensure alignment with project goals."
+      ],
+      "achievements": [
+        "Successfully implemented a feature that enhanced user authentication, improving security measures."
+      ],
+      "skills": [
+        "Python",
+        "Django",
+        "SQL",
+        "Git"
+      ]
+    },
+    {
+      "name": "Silicon Stack",
+      "position": ".NET Developer",
+      "location_type": "Hybrid",
+      "location": "Ho Chi Minh City, Vietnam",
+      "url": "https://siliconstack.com.au/",
+      "startDate": "2022-02-01",
+      "endDate": "2024-09-01",
+      "summary": "Assisting in the development and maintenance of software applications using Python and Django. Collaborating with cross-functional teams to ensure quality and timely delivery of software solutions.",
+      "highlights": [
+        "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
+      ],
+      "responsibilities": [
+        "Developed and maintained backend services using Python and Django.",
+        "Worked closely with front-end developers to integrate user-facing elements with server-side logic.",
+        "Participated in daily stand-ups and bi-weekly sprint planning meetings to ensure alignment with project goals."
+      ],
+      "achievements": [
+        "Successfully implemented a feature that enhanced user authentication, improving security measures."
+      ],
+      "skills": [
+        "Python",
+        "Django",
+        "SQL",
+        "Git"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Local Coding Club",
+      "position": "Volunteer",
+      "url": "https://codingclub.com/",
+      "startDate": "2021-01-01",
+      "endDate": "2022-01-01",
+      "summary": "Helped organize coding workshops and mentored new members.",
+      "highlights": [
+        "Awarded 'Volunteer of the Month'"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Cao Thang Technical College",
+      "url": "https://caothang.edu.vn",
+      "area": "Software Technology",
+      "studyType": "Bachelor",
+      "startDate": "2018-09-01",
+      "endDate": "2022-05-01",
+      "score": "7.2",
+      "courses": []
+    }
+  ],
+  "certificates": [],
+  "technicalSkills": [
+    {
+      "name": "Figma",
+      "level": "Expert",
+      "keywords": [
+        "Design",
+        "UI"
+      ]
+    },
+    {
+      "name": "Gitlab",
+      "level": "Intermediate",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "HTML",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend"
+      ]
+    },
+    {
+      "name": "CSS",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "Fullstack"
+      ]
+    },
+    {
+      "name": "Tailwind",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "JavaScript Superset"
+      ]
+    },
+    {
+      "name": "Node",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "JavaScript",
+        "Server"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "level": "Intermediate",
+      "keywords": [
+        "Databases",
+        "SQL",
+        "Data Storage",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "level": "Intermediate",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "level": "Intermediate",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code",
+        "Git"
+      ]
+    },
+    {
+      "name": "Next.js",
+      "level": "Beginner",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "React Framework",
+        "SSR",
+        "Static Generation"
+      ]
+    },
+    {
+      "name": "React",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "JavaScript Library",
+        "UI"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Intermediate"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technology",
+      "keywords": [
+        "AI",
+        "Blockchain"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Personal Portfolio",
+      "isActive": false,
+      "description": "A personal portfolio website to showcase my projects and skills.",
+      "highlights": [
+        "Built with React and Tailwind CSS",
+        "Includes a blog and contact form"
+      ],
+      "url": "https://johndoe.dev",
+      "github": "https://github.com"
+    },
+    {
+      "name": "Weather App",
+      "isActive": true,
+      "description": "A web application that provides weather information for any location.",
+      "highlights": [
+        "Built with JavaScript and OpenWeatherMap API",
+        "Responsive design"
+      ],
+      "url": "https://weatherapp.com"
+    },
+    {
+      "name": "Task Manager",
+      "isActive": true,
+      "description": "A simple task management app to keep track of daily tasks.",
+      "highlights": [
+        "Built with Node.js and MongoDB",
+        "User authentication and CRUD operations"
+      ],
+      "url": "https://taskmanager.com",
+      "github": "https://github.com"
+    },
+    {
+      "name": "E-commerce Site",
+      "isActive": false,
+      "description": "An online store built with Next.js and Stripe for payment processing.",
+      "highlights": [
+        "Product management and shopping cart functionality",
+        "Secure payment integration"
+      ],
+      "url": "https://ecommerce.com"
+    }
+  ],
+  "softSkills": [
+    "English: TOEIC 535 (Listening & Readings)",
+    "Problem Solving",
+    "Communication",
+    "Teamwork",
+    "Planning",
+    "Time Management",
+    "Flexibility",
+    "Presentation",
+    "Leadership"
+  ]
+}
