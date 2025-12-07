@@ -6,3 +6,4 @@ export default defineConfig({
   output: "static",
   integrations: [tailwind()],
 });
+ v
