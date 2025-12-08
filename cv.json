@@ -62,6 +62,11 @@
         "Amazon S3",
         "Seq Logging",
         "Webhooks"
+      ],
+      "achievements": [
+        "Gained solid knowledge of payment processors and the end-to-end payment integration workflow.",
+        "Learned and implemented DocuSign integration for electronic signatures in real-world business processes.",
+        "Implemented PDF rendering pipelines and integrated file storage using Amazon S3 for secure and scalable document management."
       ]
     },
     {
@@ -72,23 +77,34 @@
       "url": "https://siliconstack.com.au/",
       "startDate": "2024-09-01",
       "endDate": "2025-03-01",
-      "summary": "Assisting in the development and maintenance of software applications using Python and Django. Collaborating with cross-functional teams to ensure quality and timely delivery of software solutions.",
+      "summary": "<b>WECRM</b> is a customer relationship management system that allows vehicle management and reminds users to perform maintenance services at dealerships.",
       "highlights": [
         "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
       ],
       "responsibilities": [
-        "Developed and maintained backend services using Python and Django.",
-        "Worked closely with front-end developers to integrate user-facing elements with server-side logic.",
-        "Participated in daily stand-ups and bi-weekly sprint planning meetings to ensure alignment with project goals."
+        "Worked with the team to discuss customer requirements and implementation plans.",
+        "Maintained, refactored, fixed bugs, and optimized queries.",
+        "Identified and applied best practices for performance optimization."
       ],
       "achievements": [
-        "Successfully implemented a feature that enhanced user authentication, improving security measures."
+        "Successfully implemented a feature that allows users to manage their vehicles and schedule maintenance services.",
+        "Developed strong domain knowledge in CRM systems, including customer lifecycle, lead management, and sales workflows.",
+        "Deep-dived into .NET API development, advanced C# programming techniques, and optimized database querying to improve application performance and reliability."
       ],
       "skills": [
-        "Python",
-        "Django",
-        "SQL",
-        "Git"
+        "ASP.NET Core API",
+        "Entity Framework",
+        "RESTful API",
+        "Dapper",
+        "Ocelot",
+        "Elsa Workflows",
+        "Microservices",
+        "Multitenancy",
+        "Quartz",
+        "SQL Server",
+        "Design Patterns",
+        "RabbitMQ",
+        "gRPC"
       ]
     },
     {
@@ -99,23 +115,31 @@
       "url": "https://siliconstack.com.au/",
       "startDate": "2022-02-01",
       "endDate": "2024-09-01",
-      "summary": "Assisting in the development and maintenance of software applications using Python and Django. Collaborating with cross-functional teams to ensure quality and timely delivery of software solutions.",
+      "summary": "<b>Promotion Planning</b> is a pricing management module within the manufacturing domain that helps users manage and optimize product pricing for supermarkets in Australia and New Zealand.",
       "highlights": [
         "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
       ],
       "responsibilities": [
-        "Developed and maintained backend services using Python and Django.",
-        "Worked closely with front-end developers to integrate user-facing elements with server-side logic.",
-        "Participated in daily stand-ups and bi-weekly sprint planning meetings to ensure alignment with project goals."
+        "Worked with the team to discuss customer requirements and implementation plans.",
+        "Deployed, maintained, refactored, and fixed bugs.",
+        "Managed and reviewed member code features using Bitbucket.",
+        "Managed Azure Pipelines, IIS Web Server, and databases."
       ],
       "achievements": [
-        "Successfully implemented a feature that enhanced user authentication, improving security measures."
+        "Successfully implemented a feature that enhanced user authentication, improving security measures.",
+        "Developed strong domain knowledge in pricing management, including product pricing, promotion planning, and inventory management.",
+        "Deep-dived into .NET API development, advanced C# programming techniques, and optimized database querying to improve application performance and reliability."
       ],
       "skills": [
-        "Python",
-        "Django",
-        "SQL",
-        "Git"
+        "ASP.NET Core API",
+        "Entity Framework",
+        "RESTful API",
+        "Dapper",
+        "Ocelot",
+        "Azure Pipelines",
+        "IIS Web Server",
+        "SQL Server",
+        "Design Patterns"
       ]
     }
   ],
@@ -342,7 +366,6 @@
     "Planning",
     "Time Management",
     "Flexibility",
-    "Presentation",
-    "Leadership"
+    "Presentation"
   ]
 }
