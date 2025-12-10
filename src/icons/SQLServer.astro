@@ -1,0 +1,55 @@
+---
+// SQLServer.astro
+const width = 24;
+const height = 24;
+const logoColorRed = "#CE0000"; // Màu đỏ đặc trưng
+const logoColorGray = "#AAAAAA"; // Màu xám đặc trưng
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={width}
+  height={height}
+  viewBox="0 0 500 500"
+  fill="currentColor"
+  class="lucide lucide-sql-server"
+>
+  <path
+    d="M 125 100 C 250 50, 375 100, 375 250 S 250 450, 125 400"
+    stroke={logoColorRed}
+    stroke-width="30"
+    fill="none"
+    stroke-linecap="round"
+  />
+  <path
+    d="M 125 100 L 375 250"
+    stroke={logoColorRed}
+    stroke-width="10"
+    fill="currentColor"
+  />
+  <path
+    d="M 375 100 L 125 250"
+    stroke={logoColorRed}
+    stroke-width="10"
+    fill="currentColor"
+  />
+  <path
+    d="M 125 250 C 250 300, 375 250, 375 400 S 250 500, 125 450"
+    stroke={logoColorGray}
+    stroke-width="30"
+    fill="none"
+    stroke-linecap="round"
+  />
+  <path
+    d="M 125 250 L 375 400"
+    stroke={logoColorGray}
+    stroke-width="10"
+    fill="currentColor"
+  />
+  <path
+    d="M 375 250 L 125 400"
+    stroke={logoColorGray}
+    stroke-width="10"
+    fill="currentColor"
+  />
+
+  </svg>

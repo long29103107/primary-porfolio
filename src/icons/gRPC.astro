@@ -1,0 +1,49 @@
+---
+export interface Props {
+  size?: string;
+}
+
+const { size = "120px" } = Astro.props;
+
+const darkColor = "currentColor";
+const lightColor = "currentColor";
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 100 100"
+  fill="currentColor"
+  aria-label="gRPC Logo"
+>
+  <line
+    x1="10"
+    y1="30"
+    x2="90"
+    y2="30"
+    stroke={lightColor}
+    stroke-width="3"
+    stroke-linecap="round"></line>
+
+  <polygon points="10 30, 35 20, 35 40" fill={darkColor}></polygon>
+
+  <polygon points="10 30, 25 25, 25 35" fill={lightColor}></polygon>
+
+  <polygon points="90 30, 65 20, 65 40" fill={darkColor}></polygon>
+
+  <polygon points="90 30, 75 25, 75 35" fill={lightColor}></polygon>
+
+  <text
+    x="50"
+    y="80"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-size="30"
+    font-family="Arial, sans-serif"
+    font-weight="bold"
+    fill={darkColor}
+  >
+    g RPC
+  </text>
+</svg>
