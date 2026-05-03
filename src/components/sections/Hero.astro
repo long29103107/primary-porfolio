@@ -157,31 +157,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 </style>
 
 <script>
-  const select = document.getElementById("themeSwitch") as HTMLSelectElement;
-  const theme = localStorage.getItem("theme");
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-
-  if (theme !== null) {
-    select.value = theme;
-  } else {
-    select.value = systemTheme;
-  }
-
-  function updateTheme(value: string) {
-    const theme = value === "system" ? systemTheme : value;
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", value);
-  }
-
-  updateTheme(select.value);
-
-  select.addEventListener("change", (event: Event) => {
-    const select = event.target as HTMLSelectElement;
-    updateTheme(select.value);
-  });
+  const themeSwitch = document.getElementById("themeSwitch") as HTMLInputElement | null;
 
   // Deshabilitar modo oscuro al imprimir
   window.addEventListener("beforeprint", () => {
@@ -190,10 +166,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
 
   // Restaurar el modo oscuro después de imprimir
   window.addEventListener("afterprint", () => {
-    if (
-      select.value === "dark" ||
-      (select.value === "system" && systemTheme === "dark")
-    ) {
+    if (themeSwitch?.checked) {
       document.documentElement.classList.add("dark");
     }
   });

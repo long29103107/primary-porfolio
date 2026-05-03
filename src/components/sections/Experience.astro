@@ -1,6 +1,7 @@
 ---
 import Section from "../Section.astro"
 import { work } from "@cv"
+import ThemeSwitch from "../ThemeSwitch.astro"
 
 import HTML from "@/icons/html.astro"
 import CSS from "@/icons/css.astro"
@@ -17,6 +18,7 @@ import Swift from "@/icons/swift.astro"
 import SwiftUI from "@/icons/swiftui.astro"
 import Kotlin from "@/icons/kotlin.astro"
 import Flutter from "@/icons/flutter.astro"
+
 
 const SKILLS_ICONS: Record<string, any> = {
   HTML,
@@ -36,7 +38,8 @@ const SKILLS_ICONS: Record<string, any> = {
   Flutter,
 }
 ---
-<Section className={Astro.props.className} title="Experience">
+<Section className={Astro.props.className} title="Experience" isThemeSwitchEnabled={true}>
+  
   <ul class="flex flex-col">
     {work.map(({ name, startDate, endDate, position, summary, responsibilities, achievements, url, skills, location, location_type }) => {
       const startObj = new Date(startDate);

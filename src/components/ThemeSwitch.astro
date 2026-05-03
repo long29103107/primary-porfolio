@@ -3,63 +3,59 @@ import Theme from "@/icons/themeSwitch.astro";
 ---
 
 <div class="no-print inline-flex items-center">
-	<div class="group/theme flex items-center gap-2">
-		<label for="themeSwitch" class="flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform ease-in-out group-hover/theme:rotate-45"> <Theme /></label>
-		<select id="themeSwitch" name="themeSwitch" class="focus:ring-skin-hue ring-skin-muted block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-skin-base ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6">
-			<option class="select-theme" value="system">System</option>
-			<option class="select-theme" value="dark">Dark</option>
-			<option class="select-theme" value="light">Light</option>
-		</select>
-	</div>
+	<label class="group/theme flex cursor-pointer items-center gap-2 px-3 py-2">
+		<span class="flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform ease-in-out group-hover/theme:rotate-45">
+			<Theme />
+		</span>
+		<span
+			class="ring-skin-muted relative inline-flex h-7 w-12 shrink-0 rounded-full bg-skin-fill ring-1 ring-inset transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-skin-hue"
+		>
+			<input
+				type="checkbox"
+				id="themeSwitch"
+				name="themeSwitch"
+				role="switch"
+				aria-checked="false"
+				aria-label="Dark mode"
+				class="peer absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0"
+			/>
+			<span
+				aria-hidden="true"
+				class="pointer-events-none absolute left-0.5 top-0.5 h-6 w-6 rounded-full bg-orange-500 shadow ring-1 ring-black/10 transition-transform duration-200 ease-in-out peer-checked:translate-x-5 peer-checked:bg-white peer-checked:ring-black/5"
+			></span>
+		</span>
+	</label>
 
 	<style>
 		:global(.dark) {
 			color-scheme: dark;
 		}
-
-		.dark-background-option {
-			background: #1a1a1a;
-		}
-		.light-background-option {
-			background: #fff;
-		}
 	</style>
 
 	<script>
-		const select = document.getElementById("themeSwitch") as HTMLSelectElement;
-		const options = Array.from(document.getElementsByClassName("select-theme")) as HTMLOptionElement[];
-		const theme = localStorage.getItem("theme");		
-		const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-		
-		select.value = theme !== null ? theme : systemTheme;
-		
-		function updateTheme(value: string) {
-			const theme = value === "system" ? systemTheme : value;
+		const input = document.getElementById("themeSwitch") as HTMLInputElement;
+		const stored = localStorage.getItem("theme");
+		const systemIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+		const isDark =
+			stored === "dark" ? true : stored === "light" ? false : systemIsDark;
+
+		input.checked = isDark;
+		input.setAttribute("aria-checked", String(isDark));
+
+		function applyTheme(dark: boolean, persist: boolean) {
 			document.documentElement.classList.remove("light", "dark");
-			document.documentElement.classList.add(theme);
-
-			updateBackgroundOptions(options, theme);
-			localStorage.setItem("theme", value);
+			document.documentElement.classList.add(dark ? "dark" : "light");
+			input.setAttribute("aria-checked", String(dark));
+			if (persist) {
+				localStorage.setItem("theme", dark ? "dark" : "light");
+			}
 		}
 
-		function updateBackgroundOptions(options: HTMLOptionElement[], theme: string) {
-			options.forEach((option: HTMLOptionElement) => {
-				if (theme === "dark") {
-					option.classList.add("dark-background-option");
-					option.classList.remove("light-background-option");
-				} else {
-					option.classList.add("light-background-option");
-					option.classList.remove("dark-background-option");
-				}
-			});
+		applyTheme(isDark, false);
 
-		}
-
-		updateTheme(select.value);
-
-		select.addEventListener("change", (event: Event) => {
-			const select = event.target as HTMLSelectElement;
-			updateTheme(select.value);
+		input.addEventListener("change", () => {
+			applyTheme(input.checked, true);
 		});
 	</script>
 </div>
