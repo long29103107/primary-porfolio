@@ -281,6 +281,20 @@
       "github": "https://github.com/long29103107/CachedRepository"
     },
     {
+      "name": "Portal Client",
+      "isActive": true,
+      "description": "Internal service portal built with Bun and React for managing and accessing development tools in one place.",
+      "highlights": [
+        "Built with Bun runtime, React 19, and TypeScript",
+        "Centralized dashboard for internal tools and services",
+        "Searchable and categorized service organization",
+        "Authentication support via Keycloak (optional)",
+        "Dark mode with system theme support"
+      ],
+      "url": "https://github.com/long29103107/portal-client",
+      "github": "https://github.com/long29103107/portal-client"
+    },
+    {
       "name": "GitOps Flow",
       "isActive": true,
       "description": "GitOps-based CI/CD pipeline for microservices on Kubernetes.",
