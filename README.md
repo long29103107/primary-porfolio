@@ -65,9 +65,3 @@ npm run preview
 | `npm run dev` / `npm start` | Development server (default port `4321`). |
 | `npm run build` | Type-check with Astro Check, then build to `./dist/`. |
 | `npm run preview` | Serve the production build locally. |
-
-## Credits
-
-- Idea and print-first UX trace back to minimalist CV / portfolio approaches such as [Bartosz Jarocki’s CV](https://github.com/BartoszJarocki/cv) and [Miguel Ángel Durán’s minimalist-portfolio-json](https://github.com/midudev/minimalist-portfolio-json).
-
-If you use this as a template, replace content in **`cv.json`**, update metadata in **`Layout` / `index`**, and add your own screenshot to this README if you like.
