@@ -1,27 +1,27 @@
 @tailwind base;
 /*
-  Light: slate-ish neutrals + sky/cyan brand
+  Light: cool neutrals + sky / cyan brand
   Dark:
-    bg slate-950 #020617 · surface #0b1220 · border #1e293b
-    primary sky-400 #38bdf8 · accent cyan-400 #22d3ee
-    text slate-200 / slate-400 / slate-500
-    chip #0f172a · chip text #cbd5f5
+    bg #010409 · surface #060c17 · border #172033
+    primary sky-500 #0ea5e9 · accent cyan-500 #06b6d4
+    text #dbe5f1 / #8fa3b8 / #5b6b80
+    chip #0a101a · chip text #b8c6db
 */
 @layer base {
   :root {
     --color-text-base: 15, 23, 42; /* slate-900 */
     --color-text-muted: 71, 85, 105; /* slate-600 */
     --color-text-subtle: 100, 116, 139; /* slate-500 */
-    --color-text-on-muted: 51, 65, 85; /* slate-700 on chips */
+    --color-text-on-muted: 51, 65, 85; /* slate-700 chips */
     --color-text-inverted: 255, 255, 255;
     --color-fill: 248, 250, 252; /* slate-50 */
     --color-surface: 248, 250, 252;
-    --muted: 226, 232, 240; /* slate-200 border */
-    --color: 2, 132, 199; /* sky-600 */
-    --color-hue-hover: 14, 165, 233; /* sky-500 */
-    --color-button-accent: 6, 182, 212; /* cyan-500 */
-    --color-button-accent-hover: 8, 145, 178; /* cyan-600 */
-    --color-button-muted: 241, 245, 249; /* slate-100 chips */
+    --muted: 226, 232, 240; /* slate-200 */
+    --color: 3, 105, 161; /* sky-700 */
+    --color-hue-hover: 2, 132, 199; /* sky-600 */
+    --color-button-accent: 8, 145, 178; /* cyan-600 */
+    --color-button-accent-hover: 6, 182, 212; /* cyan-500 */
+    --color-button-muted: 241, 245, 249; /* slate-100 */
     [data-theme="blue"],
     [data-theme="red"],
     [data-theme="green"],
@@ -34,44 +34,44 @@
       --color-fill: 248, 250, 252;
       --color-surface: 248, 250, 252;
       --muted: 226, 232, 240;
-      --color: 2, 132, 199;
-      --color-hue-hover: 14, 165, 233;
-      --color-button-accent: 6, 182, 212;
-      --color-button-accent-hover: 8, 145, 178;
+      --color: 3, 105, 161;
+      --color-hue-hover: 2, 132, 199;
+      --color-button-accent: 8, 145, 178;
+      --color-button-accent-hover: 6, 182, 212;
       --color-button-muted: 241, 245, 249;
     }
   }
   .dark {
-    --color-text-base: 226, 232, 240; /* slate-200 #e2e8f0 */
-    --color-text-muted: 148, 163, 184; /* slate-400 #94a3b8 */
-    --color-text-subtle: 100, 116, 139; /* slate-500 #64748b */
-    --color-text-on-muted: 203, 213, 245; /* chip text #cbd5f5 */
+    --color-text-base: 219, 229, 241; /* #dbe5f1 */
+    --color-text-muted: 143, 163, 184; /* #8fa3b8 */
+    --color-text-subtle: 91, 107, 128; /* #5b6b80 */
+    --color-text-on-muted: 184, 198, 219; /* #b8c6db chip */
     --color-text-inverted: 15, 23, 42; /* slate-900 on accent */
-    --color-fill: 2, 6, 23; /* slate-950 #020617 */
-    --color-surface: 11, 18, 32; /* #0b1220 */
-    --muted: 30, 41, 59; /* slate-800 #1e293b */
-    --color: 56, 189, 248; /* sky-400 #38bdf8 */
-    --color-hue-hover: 125, 211, 252; /* sky-300 */
-    --color-button-accent: 34, 211, 238; /* cyan-400 #22d3ee */
-    --color-button-accent-hover: 103, 232, 249; /* cyan-300 */
-    --color-button-muted: 15, 23, 42; /* slate-900 #0f172a chip */
+    --color-fill: 1, 4, 9; /* #010409 */
+    --color-surface: 6, 12, 23; /* #060c17 */
+    --muted: 23, 32, 51; /* #172033 */
+    --color: 14, 165, 233; /* sky-500 #0ea5e9 */
+    --color-hue-hover: 56, 189, 248; /* sky-400 */
+    --color-button-accent: 6, 182, 212; /* cyan-500 #06b6d4 */
+    --color-button-accent-hover: 34, 211, 238; /* cyan-400 */
+    --color-button-muted: 10, 16, 26; /* #0a101a chip */
     [data-theme="blue"],
     [data-theme="red"],
     [data-theme="green"],
     [data-theme="cyber"] {
-      --color-text-base: 226, 232, 240;
-      --color-text-muted: 148, 163, 184;
-      --color-text-subtle: 100, 116, 139;
-      --color-text-on-muted: 203, 213, 245;
+      --color-text-base: 219, 229, 241;
+      --color-text-muted: 143, 163, 184;
+      --color-text-subtle: 91, 107, 128;
+      --color-text-on-muted: 184, 198, 219;
       --color-text-inverted: 15, 23, 42;
-      --color-fill: 2, 6, 23;
-      --color-surface: 11, 18, 32;
-      --muted: 30, 41, 59;
-      --color: 56, 189, 248;
-      --color-hue-hover: 125, 211, 252;
-      --color-button-accent: 34, 211, 238;
-      --color-button-accent-hover: 103, 232, 249;
-      --color-button-muted: 15, 23, 42;
+      --color-fill: 1, 4, 9;
+      --color-surface: 6, 12, 23;
+      --muted: 23, 32, 51;
+      --color: 14, 165, 233;
+      --color-hue-hover: 56, 189, 248;
+      --color-button-accent: 6, 182, 212;
+      --color-button-accent-hover: 34, 211, 238;
+      --color-button-muted: 10, 16, 26;
     }
   }
 }

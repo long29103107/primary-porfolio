@@ -5,13 +5,16 @@ import { basics } from "@cv";
 const { summary } = basics;
 
 const currentYear = new Date().getFullYear();
-const yearsOfExperience = currentYear - 2021;
+const yearsOfExperience = currentYear - 2022;
 
-const processedSummary = summary.replace(/\{\{\s*yoe\s*\}\}/g, yearsOfExperience.toString());
+const processedSummary = summary.replace(
+  /\{\{\s*yoe\s*\}\}/g,
+  yearsOfExperience.toString(),
+);
 ---
 
 <Section title="About">
-	<p>
-		{processedSummary}
-	</p>
+  <p>
+    {processedSummary}
+  </p>
 </Section>

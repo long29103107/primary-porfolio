@@ -6,7 +6,7 @@
     "email": "long29103107@gmail.com",
     "phone": "+84 344 066 288",
     "url": "https://longnguyen.dev",
-    "summary": "I am a .NET Developer with {{ yoe }} years of experience, passionate about learning new technologies and applying best practices. I am hardworking, self-motivated, and responsible, and I aim to grow into a senior developer while contributing meaningful value to your organization.",
+    "summary": "Backend-focused .NET Developer with {{ yoe }} years of experience building stable and easy-to-maintain systems. I like solving challenging problems, improving system performance, and using best practices in real projects. I am a self-motivated and responsible developer who is always learning, with the goal of becoming a senior developer and contributing to meaningful products.",
     "theme": "default",
     "location": {
       "address": "58/5D, Street No. 9, Linh Tay Ward, Thu Duc City",
@@ -39,19 +39,20 @@
       "endDate": null,
       "summary": "<b>BLogic Dashboard</b> is a support application designed for <b>POS systems</b>. It helps agents manage merchants through a hierarchical model, create support tickets, and generate registration forms using <b>DocuSign</b>. It also integrates with external systems such as <b>TSYS</b> to handle legal documentation.",
       "highlights": [
-        "Developing and maintaining web applications using .NET, C#, and SQL Server. Collaborating with the team to implement new features and fix bugs."
+        "Developing and maintaining web applications using .NET Core, C#, and SQL Server. Collaborating with the team to implement new features and fix bugs."
       ],
       "responsibilities": [
-        "Analyzed and clarified customer requirements, then planned development tasks for each module.",
-        "Built the codebase, designed the database schema, and developed new modules with optimized SQL queries.",
-        "Set up and maintained CI/CD pipelines using Jenkins, deploying applications to a Linux server environment.",
-        "Integrated the system with TSYS payment processing services."
+        "Translated business requirements into technical solutions and planned modular development tasks.",
+        "Designed database schema and developed scalable modules with optimized SQL queries.",
+        "Built and maintained CI/CD pipelines using Jenkins for automated deployment to Linux environments.",
+        "Integrated TSYS payment gateway, ensuring secure and reliable transaction processing."
       ],
       "skills": [
         "ASP.NET Core API",
         "RESTful API",
         "API Versioning",
         "Razor",
+        "Entity Framework Core",
         "Dapper",
         "SignalR",
         "Quartz",
@@ -64,9 +65,9 @@
         "Webhooks"
       ],
       "achievements": [
-        "Gained solid knowledge of payment processors and the end-to-end payment integration workflow.",
-        "Learned and implemented DocuSign integration for electronic signatures in real-world business processes.",
-        "Implemented PDF rendering pipelines and integrated file storage using Amazon S3 for secure and scalable document management."
+        "Delivered end-to-end payment integrations, gaining deep understanding of payment processing workflows.",
+        "Implemented DocuSign integration to enable secure and streamlined electronic signature processes.",
+        "Built scalable PDF rendering pipelines and integrated Amazon S3 for reliable document storage."
       ]
     },
     {
@@ -82,18 +83,18 @@
         "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
       ],
       "responsibilities": [
-        "Worked with the team to discuss customer requirements and implementation plans.",
-        "Maintained, refactored, fixed bugs, and optimized queries.",
-        "Identified and applied best practices for performance optimization."
+        "Collaborated with stakeholders to define requirements and implementation plans.",
+        "Maintained and refactored codebase, fixed bugs, and optimized database queries.",
+        "Applied best practices to improve system performance and code quality."
       ],
       "achievements": [
-        "Successfully implemented a feature that allows users to manage their vehicles and schedule maintenance services.",
-        "Developed strong domain knowledge in CRM systems, including customer lifecycle, lead management, and sales workflows.",
-        "Deep-dived into .NET API development, advanced C# programming techniques, and optimized database querying to improve application performance and reliability."
+        "Delivered a vehicle management and maintenance scheduling feature.",
+        "Built strong domain knowledge in CRM systems (customer lifecycle, lead management, sales workflows).",
+        "Improved API performance and reliability through advanced C# and query optimization."
       ],
       "skills": [
         "ASP.NET Core API",
-        "Entity Framework",
+        "Entity Framework Core",
         "RESTful API",
         "Dapper",
         "Ocelot",
@@ -120,15 +121,16 @@
         "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
       ],
       "responsibilities": [
-        "Worked with the team to discuss customer requirements and implementation plans.",
-        "Deployed, maintained, refactored, and fixed bugs.",
-        "Managed and reviewed member code features using Bitbucket.",
-        "Managed Azure Pipelines, IIS Web Server, and databases."
+        "Collaborated with the team to define requirements and implementation plans.",
+        "Deployed, maintained, refactored, and resolved production issues.",
+        "Reviewed and managed code changes using Bitbucket workflows.",
+        "Managed Azure Pipelines, IIS web servers, and database operations."
       ],
       "achievements": [
-        "Successfully implemented a feature that enhanced user authentication, improving security measures.",
-        "Developed strong domain knowledge in pricing management, including product pricing, promotion planning, and inventory management.",
-        "Deep-dived into .NET API development, advanced C# programming techniques, and optimized database querying to improve application performance and reliability."
+        "Delivered enhanced authentication features, improving system security.",
+        "Developed domain expertise in pricing systems, including product pricing, promotions, and inventory management.",
+        "Improved API performance and reliability through advanced C# and database query optimization.",
+        "Integrated SharePoint for storing and managing generated reports in a centralized document system."
       ],
       "skills": [
         "ASP.NET Core API",
@@ -185,6 +187,10 @@
     {
       "name": "JavaScript",
       "code": "JavaScript"
+    },
+    {
+      "name": "C#",
+      "code": "C#"
     },
     {
       "name": "Tailwind",
@@ -248,46 +254,45 @@
   ],
   "projects": [
     {
-      "name": "Personal Portfolio",
-      "isActive": false,
-      "description": "A personal portfolio website to showcase my projects and skills.",
-      "highlights": [
-        "Built with React and Tailwind CSS",
-        "Includes a blog and contact form"
-      ],
-      "url": "https://johndoe.dev",
-      "github": "https://github.com"
-    },
-    {
-      "name": "Weather App",
+      "name": "NETDevTool",
       "isActive": true,
-      "description": "A web application that provides weather information for any location.",
+      "description": "In-app API Explorer for ASP.NET Core using OpenAPI/Swagger.",
       "highlights": [
-        "Built with JavaScript and OpenWeatherMap API",
-        "Responsive design"
+        "Published as NuGet package (LonG.DevTool)",
+        "Test APIs with JWT, query, body",
+        "Auto-fill request via LLM",
+        "React SPA served via middleware"
       ],
-      "url": "https://weatherapp.com"
+      "url": "https://github.com/long29103107/NETDevTool",
+      "github": "https://github.com/long29103107/NETDevTool"
     },
     {
-      "name": "Task Manager",
+      "name": "CachedRepository",
       "isActive": true,
-      "description": "A simple task management app to keep track of daily tasks.",
+      "description": "Repository pattern with Cache-Aside and decorator-based caching.",
       "highlights": [
-        "Built with Node.js and MongoDB",
-        "User authentication and CRUD operations"
+        "Attribute-based caching ([CachedEntity])",
+        "Scrutor for repository decoration",
+        "Transaction-aware cache (Unit of Work)",
+        "Configurable cache duration",
+        "Redis-ready for scaling"
       ],
-      "url": "https://taskmanager.com",
-      "github": "https://github.com"
+      "url": "https://github.com/long29103107/CachedRepository",
+      "github": "https://github.com/long29103107/CachedRepository"
     },
     {
-      "name": "E-commerce Site",
-      "isActive": false,
-      "description": "An online store built with Next.js and Stripe for payment processing.",
+      "name": "GitOps Flow",
+      "isActive": true,
+      "description": "GitOps-based CI/CD pipeline for microservices on Kubernetes.",
       "highlights": [
-        "Product management and shopping cart functionality",
-        "Secure payment integration"
+        "CI with GitHub Actions (build, push GHCR, update GitOps repo)",
+        "CD with ArgoCD auto-sync from GitOps repository",
+        "Helm-based reusable charts (DRY for multi-services)",
+        "Deployed on Kubernetes with Traefik ingress",
+        "End-to-end flow: code → image → GitOps → deploy"
       ],
-      "url": "https://ecommerce.com"
+      "url": "https://github.com/long29103107/gitops-flow",
+      "github": "https://github.com/long29103107/gitops-flow"
     }
   ],
   "softSkills": [
