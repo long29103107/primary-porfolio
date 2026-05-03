@@ -1,112 +1,77 @@
 @tailwind base;
+/*
+  Light: slate-ish neutrals + sky/cyan brand
+  Dark:
+    bg slate-950 #020617 · surface #0b1220 · border #1e293b
+    primary sky-400 #38bdf8 · accent cyan-400 #22d3ee
+    text slate-200 / slate-400 / slate-500
+    chip #0f172a · chip text #cbd5f5
+*/
 @layer base {
   :root {
-    --color-text-base: 0, 0, 0;
-    --color-text-muted: 120, 120, 120;
+    --color-text-base: 15, 23, 42; /* slate-900 */
+    --color-text-muted: 71, 85, 105; /* slate-600 */
+    --color-text-subtle: 100, 116, 139; /* slate-500 */
+    --color-text-on-muted: 51, 65, 85; /* slate-700 on chips */
     --color-text-inverted: 255, 255, 255;
-    --color-fill: 245, 245, 245;
-    --muted: 200, 200, 200;
-    --color: 249, 115, 22;
-    --color-button-accent: 249, 115, 22;
-    --color-button-accent-hover: 55, 55, 55;
-    --color-button-muted: 244, 239, 238;
-    [data-theme="blue"] {
-      --color-text-base: 15, 23, 42;
-      --color-text-muted: 100, 116, 139;
-      --color-text-inverted: 240, 240, 240;
-      --color-fill: 203, 213, 225;
-      --muted: 148, 163, 184;
-      --color: 59, 130, 246;
-      --color-button-accent: 59, 130, 246;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 226, 232, 240;
-    }
-    [data-theme="red"] {
-      --color-text-base: 28, 25, 23;
-      --color-text-muted: 100, 100, 100;
-      --color-text-inverted: 245, 245, 245;
-      --color-fill: 231, 229, 228;
-      --muted: 220, 220, 220;
-      --color: 239, 68, 68;
-      --color-button-accent: 239, 68, 68;
-      --color-button-accent-hover: 220, 50, 70;
-      --color-button-muted: 245, 245, 245;
-    }
-    [data-theme="green"] {
-      --color-text-base: 40, 40, 40;
-      --color-text-muted: 110, 110, 110;
-      --color-text-inverted: 230, 230, 230;
-      --color-fill: 236, 252, 203;
-      --muted: 189, 220, 147;
-      --color: 101, 163, 13;
-      --color-button-accent: 101, 163, 13;
-      --color-button-accent-hover: 120, 220, 120;
-      --color-button-muted: 211, 235, 173;
-    }
+    --color-fill: 248, 250, 252; /* slate-50 */
+    --color-surface: 248, 250, 252;
+    --muted: 226, 232, 240; /* slate-200 border */
+    --color: 2, 132, 199; /* sky-600 */
+    --color-hue-hover: 14, 165, 233; /* sky-500 */
+    --color-button-accent: 6, 182, 212; /* cyan-500 */
+    --color-button-accent-hover: 8, 145, 178; /* cyan-600 */
+    --color-button-muted: 241, 245, 249; /* slate-100 chips */
+    [data-theme="blue"],
+    [data-theme="red"],
+    [data-theme="green"],
     [data-theme="cyber"] {
-      --color-text-base: 15, 15, 15;
-      --color-text-muted: 144, 135, 5;
-      --color-text-inverted: 240, 240, 240;
-      --color-fill: 252, 255, 64;
-      --muted: 50, 50, 50;
-      --color: 235, 21, 43;
-      --color-button-accent: 235, 21, 43;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 249, 239, 6;
+      --color-text-base: 15, 23, 42;
+      --color-text-muted: 71, 85, 105;
+      --color-text-subtle: 100, 116, 139;
+      --color-text-on-muted: 51, 65, 85;
+      --color-text-inverted: 255, 255, 255;
+      --color-fill: 248, 250, 252;
+      --color-surface: 248, 250, 252;
+      --muted: 226, 232, 240;
+      --color: 2, 132, 199;
+      --color-hue-hover: 14, 165, 233;
+      --color-button-accent: 6, 182, 212;
+      --color-button-accent-hover: 8, 145, 178;
+      --color-button-muted: 241, 245, 249;
     }
   }
   .dark {
-    --color-text-base: 255, 255, 255;
-    --color-text-muted: 150, 150, 150;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 18, 18, 18;
-    --muted: 36, 36, 36;
-    --color: 227, 77, 10;
-    --color-button-accent: 227, 77, 10;
-    --color-button-accent-hover: 231, 121, 43;
-    --color-button-muted: 26, 26, 26;
-    [data-theme="blue"] {
-      --color-text-base: 248, 250, 252;
-      --color-text-muted: 148, 163, 184;
-      --color-text-inverted: 240, 240, 240;
-      --color-fill: 2, 6, 23;
-      --muted: 51, 65, 85;
-      --color: 59, 130, 246;
-      --color-button-accent: 59, 130, 246;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 30, 41, 59;
-    }
-    [data-theme="red"] {
-      --color-text-base: 231, 229, 228;
-      --color-text-muted: 168, 162, 158;
-      --color-text-inverted: 245, 245, 245;
-      --color-fill: 28, 25, 23;
-      --muted: 45, 45, 45;
-      --color: 248, 113, 113;
-      --color-button-accent: 248, 113, 113;
-      --color-button-accent-hover: 220, 50, 70;
-      --color-button-muted: 120, 113, 108; 
-    }
-    [data-theme="green"] {
-      --color-text-base: 230, 230, 230;
-      --color-text-muted: 104, 124, 104;
-      --color-text-inverted: 230, 230, 230;
-      --color-fill: 10, 20, 10;
-      --muted: 54, 64, 54;
-      --color: 132, 204, 22;
-      --color-button-accent: 132, 204, 22;
-      --color-button-accent-hover: 120, 220, 120;
-      --color-button-muted: 34, 44, 34;
-    }
+    --color-text-base: 226, 232, 240; /* slate-200 #e2e8f0 */
+    --color-text-muted: 148, 163, 184; /* slate-400 #94a3b8 */
+    --color-text-subtle: 100, 116, 139; /* slate-500 #64748b */
+    --color-text-on-muted: 203, 213, 245; /* chip text #cbd5f5 */
+    --color-text-inverted: 15, 23, 42; /* slate-900 on accent */
+    --color-fill: 2, 6, 23; /* slate-950 #020617 */
+    --color-surface: 11, 18, 32; /* #0b1220 */
+    --muted: 30, 41, 59; /* slate-800 #1e293b */
+    --color: 56, 189, 248; /* sky-400 #38bdf8 */
+    --color-hue-hover: 125, 211, 252; /* sky-300 */
+    --color-button-accent: 34, 211, 238; /* cyan-400 #22d3ee */
+    --color-button-accent-hover: 103, 232, 249; /* cyan-300 */
+    --color-button-muted: 15, 23, 42; /* slate-900 #0f172a chip */
+    [data-theme="blue"],
+    [data-theme="red"],
+    [data-theme="green"],
     [data-theme="cyber"] {
-      --color-text-base: 252, 255, 64;
-      --color-text-muted: 125, 125, 125;
-      --color-text-inverted: 240, 240, 240;
-      --color-fill: 15, 15, 15;
-      --muted: 50, 50, 50;
-      --color: 90, 237, 251;
-      --color-button-accent: 90, 237, 251;
-      --color-button-accent-hover: 0, 185, 255;
-      --color-button-muted: 25, 81, 86;
+      --color-text-base: 226, 232, 240;
+      --color-text-muted: 148, 163, 184;
+      --color-text-subtle: 100, 116, 139;
+      --color-text-on-muted: 203, 213, 245;
+      --color-text-inverted: 15, 23, 42;
+      --color-fill: 2, 6, 23;
+      --color-surface: 11, 18, 32;
+      --muted: 30, 41, 59;
+      --color: 56, 189, 248;
+      --color-hue-hover: 125, 211, 252;
+      --color-button-accent: 34, 211, 238;
+      --color-button-accent-hover: 103, 232, 249;
+      --color-button-muted: 15, 23, 42;
     }
+  }
 }

@@ -16,12 +16,16 @@ export default {
         skin: {
           base: withOpacity("--color-text-base"),
           muted: withOpacity("--color-text-muted"),
+          subtle: withOpacity("--color-text-subtle"),
+          "on-muted": withOpacity("--color-text-on-muted"),
           inverted: withOpacity("--color-text-inverted"),
+          "hue-hover": withOpacity("--color-hue-hover"),
         },
       },
       backgroundColor: {
         skin: {
           fill: withOpacity("--color-fill"),
+          surface: withOpacity("--color-surface"),
           "button-accent": withOpacity("--color-button-accent"),
           "button-accent-hover": withOpacity("--color-button-accent-hover"),
           "button-muted": withOpacity("--color-button-muted"),
@@ -33,9 +37,17 @@ export default {
           muted: withOpacity("--muted"),
         },
       },
+      borderColor: {
+        skin: {
+          muted: withOpacity("--muted"),
+          hue: withOpacity("--color"),
+        },
+      },
       ringColor: {
         skin: {
           fill: withOpacity("--color-fill"),
+          muted: withOpacity("--muted"),
+          hue: withOpacity("--color"),
         },
       },
       gradientColorStops: {
