@@ -1,62 +1,73 @@
-## Print-friendly portfolio CV
+# Portfolio / CV (Static Site)
 
-![preview](https://github.com/user-attachments/assets/44c47034-06e4-412a-b9dd-014593b32215)
+A **print-friendly, single-page developer portfolio** built with [Astro](https://astro.build/). All résumé content lives in one **`cv.json`** file, so you can update your profile without touching layout code. The site ships as **static HTML**—fast, cheap to host, and easy to deploy anywhere.
 
-![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss)
-![GitHub stars](https://img.shields.io/github/stars/Smilesharks/dev-portfolio)
-![GitHub issues](https://img.shields.io/github/issues/Smilesharks/dev-portfolio)
-![GitHub forks](https://img.shields.io/github/forks/Smilesharks/dev-portfolio)
-![GitHub PRs](https://img.shields.io/github/issues-pr/Smilesharks/dev-portfolio)
+## What this project does
 
-## 🛠️ Stack
+- Renders a **one-page CV / portfolio** with sections such as hero, about, experience, education, technical & soft skills, and projects.
+- Uses **`cv.json`** as the single source of truth (TypeScript path alias `@cv`).
+- Supports **light and dark** appearance via a theme toggle (preference is persisted in `localStorage`).
+- Includes **keyboard shortcuts** for navigation and actions (powered by [hotkeypad](https://www.npmjs.com/package/hotkeypad)).
+- Is **optimized for printing** (`@media print` styles, layout tweaks, and optional section visibility) so you can save a clean PDF from the browser.
 
-- [**Astro**](https://astro.build/) - The next-gen web framework.
-- [**Typescript**](https://www.typescriptlang.org/) - JavaScript with type syntax.
-- [**Ninja Keys**](https://github.com/ssleptsov/ninja-keys) - Dropdown menu with keyboard shortcuts made in pure JavaScript.
+## Tech stack
 
-## 🚀 Getting Started
+| Layer | Technology |
+|--------|---------------|
+| Framework | [Astro 4](https://astro.build/) (static `output`) |
+| Styling | [Tailwind CSS 3](https://tailwindcss.com/) with `@astrojs/tailwind` |
+| Language | [TypeScript](https://www.typescriptlang.org/) |
+| Content | JSON (`cv.json`), inspired by [JSON Resume](https://jsonresume.org/schema/)-style structure |
+| Tooling | `@astrojs/check`, Prettier (+ Astro & Tailwind plugins) |
 
-### 1. Use this Repo as an Astro Project Template
+## Project layout (essentials)
 
-- I use [pnpm](https://pnpm.io/installation) as my package manager.
+- **`cv.json`** — Your name, links, work history, skills, projects, etc.
+- **`public/themes/themes.css`** — Design tokens (light/dark palettes, semantic colors consumed as `text-skin-*`, `bg-skin-*`, etc.).
+- **`tailwind.config.mjs`** — Maps CSS variables to Tailwind `skin` colors.
+- **`src/pages/index.astro`** — Page shell; composes section components.
+- **`src/components/sections/`** — Hero, About, Experience, Education, skills, projects.
+- **`src/components/KeyboardManager.astro`** — Global hotkeys.
 
-```bash
-# Enable pnpm on MacOS, WSL & Linux:
-corepack enable
-corepack prepare pnpm@latest --activate
-```
+## Getting started
 
-# Initialize the project
-```bash
-pnpm create astro@latest -- --template Smilesharks/dev-portfolio
-```
-
-### 2. Add Your Content:
-
-Edit the `cv.json` file to create your own printable Portfolio/CV.
-
-### 3. Launch the Development Server:
+**Requirements:** [Node.js](https://nodejs.org/) (LTS recommended).
 
 ```bash
-# Enjoy the results
-pnpm dev
+npm install
+npm run dev
 ```
-1. Open [**http://localhost:4321**](http://localhost:4321/) in your browser to view the result 🚀
 
-### 4. Customisable colours:
-Change the data-theme of `cv.json` and choose one of the colour themes defined in theme.css, red, blue, green, cyber and default, with its variants in dark mode, or create your own.
+Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-## 🧞 Commands
+### Production build
 
-|     | Command         | Action                                                                       |
-| :-- | :-------------- | :--------------------------------------------------------------------------- |
-| ⚙️  | `dev` o `start` | Launches a local development server at `localhost:4321`.                   |
-| ⚙️  | `build`         | Checks for errors and creates a production build in `./dist/`. |
-| ⚙️  | `preview`       | Local preview at `localhost:4321`                                       |
+```bash
+npm run build
+```
 
-Wiki: [dev-portfolio](https://deepwiki.com/Smilesharks/dev-portfolio)
+Static assets are written to **`dist/`**. Preview locally with:
 
-CV JSON schema from [**jsonresume.org**](https://jsonresume.org/schema/)
+```bash
+npm run preview
+```
 
-Based on [**Bartosz Jarocki - Print-friendly, minimalist CV page**](https://github.com/BartoszJarocki/cv) and [**Miguel Ángel Durán - minimalist-portfolio-json**](https://github.com/midudev/minimalist-portfolio-json)
+## Customization
+
+1. **Content** — Edit **`cv.json`** (and keep types in mind via `src/cv.d.ts` if you extend fields).
+2. **Themes** — Adjust colors in **`public/themes/themes.css`**. Optional `basics.theme` values in `cv.json` still target the nested `[data-theme="..."]` blocks if you use them.
+3. **Sections / layout** — Tweak Astro components under **`src/components`** and the grid in **`src/pages/index.astro`**.
+
+## Scripts
+
+| Command | Description |
+|--------|-------------|
+| `npm run dev` / `npm start` | Development server (default port `4321`). |
+| `npm run build` | Type-check with Astro Check, then build to `./dist/`. |
+| `npm run preview` | Serve the production build locally. |
+
+## Credits
+
+- Idea and print-first UX trace back to minimalist CV / portfolio approaches such as [Bartosz Jarocki’s CV](https://github.com/BartoszJarocki/cv) and [Miguel Ángel Durán’s minimalist-portfolio-json](https://github.com/midudev/minimalist-portfolio-json).
+
+If you use this as a template, replace content in **`cv.json`**, update metadata in **`Layout` / `index`**, and add your own screenshot to this README if you like.
