@@ -1,5 +1,4 @@
 ---
-import Git from "@/icons/git.astro";
 import Arrow from "@/icons/Arrow.astro";
 import Section from "../Section.astro";
 import ASPNETCore from "@/icons/ASPNETCore.astro";
@@ -26,9 +25,22 @@ const workProjects = work.map((job) => ({
 
 const personalProjectSkillMap: Record<string, string[]> = {
   NETDevTool: ["ASP.NET Core", "OpenAPI", "Swagger", "JWT", "React", "LLM"],
-  CachedRepository: ["C#", "Redis", "Scrutor", "Repository Pattern", "Unit of Work"],
+  CachedRepository: [
+    "C#",
+    "Redis",
+    "Scrutor",
+    "Repository Pattern",
+    "Unit of Work",
+  ],
   "Portal Client": ["Bun", "React 19", "TypeScript", "Keycloak", "Dark Mode"],
-  "GitOps Flow": ["GitHub Actions", "GHCR", "ArgoCD", "Helm", "Kubernetes", "Traefik"],
+  "GitOps Flow": [
+    "GitHub Actions",
+    "GHCR",
+    "ArgoCD",
+    "Helm",
+    "Kubernetes",
+    "Traefik",
+  ],
 };
 
 const TAG_ICONS: Record<string, any> = {
@@ -47,67 +59,92 @@ const TAG_ICONS: Record<string, any> = {
   gRPC,
   Jenkins,
 };
-
 ---
 
-<Section className={["projects-section", Astro.props.className].filter(Boolean).join(" ")}>
+<Section
+  className={["projects-section", Astro.props.className]
+    .filter(Boolean)
+    .join(" ")}
+>
   <div class="grid gap-8">
     <div class="project-column">
       <h4>Work Projects</h4>
       <div class="grid gap-4 lg:grid-cols-2">
         {
-          workProjects.map(({ name, company, url, description, highlights, skills }) => (
-            <article class="project-card">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h5>
-                    {url ? (
-                      <a class="group inline-flex items-center gap-1 text-skin-hue hover:text-skin-hue-hover" href={url} title={`View ${company}`} target="_blank">
-                        {name}
-                        <span class="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                          <Arrow />
-                        </span>
-                      </a>
-                    ) : (
-                      name
-                    )}
-                  </h5>
-                  <p class="text-xs font-bold text-skin-muted">{company}</p>
+          workProjects.map(
+            ({ name, company, url, description, highlights, skills }) => (
+              <article class="project-card">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h5>
+                      {url ? (
+                        <a
+                          class="group inline-flex items-center gap-1 text-skin-hue hover:text-skin-hue-hover"
+                          href={url}
+                          title={`View ${company}`}
+                          target="_blank"
+                        >
+                          {name}
+                          <span class="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                            <Arrow />
+                          </span>
+                        </a>
+                      ) : (
+                        name
+                      )}
+                    </h5>
+                    <p class="text-xs font-bold text-skin-muted">{company}</p>
+                  </div>
                 </div>
-              </div>
 
-              <p class="py-3 text-base font-semibold leading-7 text-skin-base" set:html={description} />
+                <p
+                  class="py-3 text-base font-semibold leading-7 text-skin-base"
+                  set:html={description}
+                />
 
-              {highlights.length > 0 && (
-                <ul class="project-list">
-                  {highlights.slice(0, 3).map((highlight) => (
-                    <li set:html={highlight} />
-                  ))}
-                </ul>
-              )}
+                {highlights.length > 0 && (
+                  <ul class="project-list">
+                    {highlights.slice(0, 3).map((highlight) => (
+                      <li set:html={highlight} />
+                    ))}
+                  </ul>
+                )}
 
-              {skills.length > 0 && (
-                <ul class="mt-3 flex flex-wrap gap-2">
-                  {skills.slice(0, 6).map((skill) => {
-                    const Icon = TAG_ICONS[skill];
+                {skills.length > 0 && (
+                  <ul class="mt-3 flex flex-wrap gap-2">
+                    {skills.slice(0, 6).map((skill) => {
+                      const Icon = TAG_ICONS[skill];
 
-                    return (
-                      <li class="skill-chip">
-                        {Icon ? (
-                          <Icon />
-                        ) : (
-                          <svg class="size-4" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                          </svg>
-                        )}
-                        <span>{skill}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
-            </article>
-          ))
+                      return (
+                        <li class="skill-chip">
+                          {Icon ? (
+                            <Icon />
+                          ) : (
+                            <svg
+                              class="size-4"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          )}
+                          <span>{skill}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </article>
+            ),
+          )
         }
       </div>
     </div>
@@ -116,73 +153,88 @@ const TAG_ICONS: Record<string, any> = {
       <h4>Personal Projects</h4>
       <div class="grid gap-4 lg:grid-cols-2">
         {
-          projects.map(({ url, description, highlights, name, isActive, github }) => (
-            <article class="project-card">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="size-4 shrink-0 text-skin-hue"
-                  >
-                    <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
-                  </svg>
-                  <h5>
-                    {isActive ? (
-                      <a class="group inline-flex items-center gap-1 text-skin-hue hover:text-skin-hue-hover" href={url} title={`View ${name}`} target="_blank">
-                        {name}
-                        <span class="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                          <Arrow />
-                        </span>
-                      </a>
-                    ) : (
-                      <span>{name}</span>
-                    )}
-                  </h5>
+          projects.map(
+            ({ url, description, highlights, name, isActive, github }) => (
+              <article class="project-card">
+                <div class="flex items-start justify-between gap-4">
+                  <div class="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="size-4 shrink-0 text-skin-hue"
+                    >
+                      <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+                    </svg>
+                    <h5>
+                      {isActive ? (
+                        <a
+                          class="group inline-flex items-center gap-1 text-skin-hue hover:text-skin-hue-hover"
+                          href={url}
+                          title={`View ${name}`}
+                          target="_blank"
+                        >
+                          {name}
+                          <span class="transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                            <Arrow />
+                          </span>
+                        </a>
+                      ) : (
+                        <span>{name}</span>
+                      )}
+                    </h5>
+                  </div>
                 </div>
 
-                {github && (
-                  <a href={github} title={`View ${name} repository on GitHub`} target="_blank" rel="noopener" class="text-skin-muted opacity-75 transition hover:text-skin-hue hover:opacity-100">
-                    <Git />
-                  </a>
-                )}
-              </div>
+                <p class="py-3 text-base font-semibold leading-7 text-skin-base">
+                  {description}
+                </p>
 
-              <p class="py-3 text-base font-semibold leading-7 text-skin-base">{description}</p>
+                <ul class="project-list">
+                  {highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
 
-              <ul class="project-list">
-                {highlights.map((highlight) => (
-                  <li>{highlight}</li>
-                ))}
-              </ul>
+                <ul class="mt-3 flex flex-wrap gap-2">
+                  {(personalProjectSkillMap[name] ?? []).map((skill) => {
+                    const Icon = TAG_ICONS[skill];
 
-              <ul class="mt-3 flex flex-wrap gap-2">
-                {(personalProjectSkillMap[name] ?? []).map((skill) => {
-                  const Icon = TAG_ICONS[skill];
-
-                  return (
-                    <li class="project-tag">
-                      {Icon ? (
-                        <Icon />
-                      ) : (
-                        <svg class="size-4" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      )}
-                      <span>{skill}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </article>
-          ))
+                    return (
+                      <li class="project-tag">
+                        {Icon ? (
+                          <Icon />
+                        ) : (
+                          <svg
+                            class="size-4"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        )}
+                        <span>{skill}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </article>
+            ),
+          )
         }
       </div>
     </div>
@@ -203,7 +255,7 @@ const TAG_ICONS: Record<string, any> = {
   }
 
   .project-card {
-    @apply relative flex flex-col rounded-lg border border-skin-muted bg-skin-button-muted/35 p-4 dark:bg-skin-button-muted/60;
+    @apply relative flex flex-col rounded-lg border border-slate-300/80 bg-skin-button-muted/20 p-5 shadow-sm shadow-slate-900/5 transition duration-300 ease-out hover:-translate-y-1 hover:border-skin-hue/70 hover:shadow-xl hover:shadow-skin-hue/10 dark:border-slate-700 dark:bg-skin-button-muted/30 dark:shadow-black/20;
   }
 
   .project-card h5 {

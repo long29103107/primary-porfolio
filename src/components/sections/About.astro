@@ -14,7 +14,17 @@ const processedSummary = summary.replace(
 ---
 
 <Section className={Astro.props.className} title="About">
-  <p class="text-base leading-7 text-skin-muted">
+  <p class="quote-text text-base leading-7 text-skin-base">
     {processedSummary}
   </p>
 </Section>
+
+<style>
+  .quote-text {
+    @apply relative rounded-lg border-l-4 border-skin-hue bg-skin-button-accent/10 px-5 py-4 font-semibold italic shadow-sm dark:bg-skin-button-muted/60;
+  }
+
+  .quote-text::before {
+    @apply absolute -top-3 left-4 text-5xl font-black leading-none text-skin-hue/25 content-['"'];
+  }
+</style>

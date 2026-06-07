@@ -17,7 +17,7 @@ const { name, label } = basics;
 
 <Layout title={`${name} Portfolio - ${label}`}>
   <main
-    class="resume-sheet relative grid max-w-7xl gap-12 p-8 max-sm:py-16 md:grid-cols-6 md:p-16 xl:gap-20 print:max-w-none print:grid-cols-1 print:gap-6 print:shadow-none"
+    class="resume-sheet relative grid max-w-7xl gap-12 p-8 pb-[0px] max-sm:py-16 md:grid-cols-6 md:p-16 md:pb-[10px] xl:gap-20 print:max-w-none print:grid-cols-1 print:gap-6 print:shadow-none"
   >
     <div
       class="no-print absolute right-4 top-4 z-10 flex items-center gap-1 md:right-6 md:top-6"
@@ -40,7 +40,9 @@ const { name, label } = basics;
       <Experience className="print:col-span-3" />
     </div>
     <Projects className="col-span-full print:hidden" />
-    <p class="no-print col-span-full text-center text-xs text-skin-muted">
+    <p
+      class="no-print col-span-full -mt-8 text-center text-xs leading-none text-skin-muted xl:-mt-14"
+    >
       1% better every day through learning. 📚✨
     </p>
   </main>
