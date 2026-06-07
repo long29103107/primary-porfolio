@@ -23,7 +23,7 @@ const linkedUrl = linkedInfo?.url;
 const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" | ");
 ---
 
-<Section>
+<Section className={Astro.props.className}>
   <div class="flex flex-col gap-8">
     <figure class="relative mx-auto w-fit print:hidden">
       <div

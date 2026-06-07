@@ -59,15 +59,20 @@ const TAG_ICONS: Record<string, any> = {
   gRPC,
   Jenkins,
 };
+
+const type = Astro.props.type ?? "all";
+const showWorkProjects = type === "all" || type === "work";
+const showPersonalProjects = type === "all" || type === "personal";
 ---
 
 <Section
   className={["projects-section", Astro.props.className]
     .filter(Boolean)
-    .join(" ")}
+  .join(" ")}
 >
   <div class="grid gap-8">
-    <div class="project-column">
+    {
+      showWorkProjects && <div class="project-column">
       <h4>Work Projects</h4>
       <div class="grid gap-4 lg:grid-cols-2">
         {
@@ -148,8 +153,10 @@ const TAG_ICONS: Record<string, any> = {
         }
       </div>
     </div>
+    }
 
-    <div class="project-column">
+    {
+      showPersonalProjects && <div class="project-column">
       <h4>Personal Projects</h4>
       <div class="grid gap-4 lg:grid-cols-2">
         {
@@ -238,6 +245,7 @@ const TAG_ICONS: Record<string, any> = {
         }
       </div>
     </div>
+    }
   </div>
 </Section>
 

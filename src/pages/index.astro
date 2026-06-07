@@ -26,22 +26,26 @@ const { name, label } = basics;
     </div>
 
     <div
-      class="space-y-8 md:col-span-2 print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
+      class="space-y-8 max-md:contents md:col-span-2 print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
     >
-      <Hero />
-      <TechnicalSkills className="print:hidden" />
-      <SoftSkills className="print:hidden" />
-      <Education />
+      <Hero className="max-md:order-1" />
+      <TechnicalSkills className="max-md:order-3 print:hidden" />
+      <SoftSkills className="max-md:order-4 print:hidden" />
+      <Education className="max-md:order-5" />
     </div>
     <div
-      class="space-y-10 md:col-span-4 print:col-span-1 print:grid print:grid-cols-4 print:gap-2 print:space-y-0"
+      class="space-y-10 max-md:contents md:col-span-4 print:col-span-1 print:grid print:grid-cols-4 print:gap-2 print:space-y-0"
     >
-      <About className="order-first" />
-      <Experience className="print:col-span-3" />
+      <About className="order-first max-md:order-2" />
+      <Experience className="max-md:order-8 print:col-span-3" />
     </div>
-    <Projects className="col-span-full print:hidden" />
+    <Projects type="work" className="col-span-full max-md:order-6 print:hidden" />
+    <Projects
+      type="personal"
+      className="col-span-full max-md:order-7 print:hidden"
+    />
     <p
-      class="no-print col-span-full -mt-8 text-center text-xs leading-none text-skin-muted xl:-mt-14"
+      class="no-print col-span-full -mt-8 text-center text-xs leading-none text-skin-muted max-md:order-last xl:-mt-14"
     >
       1% better every day through learning. 📚✨
     </p>
