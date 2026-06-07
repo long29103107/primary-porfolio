@@ -9,6 +9,7 @@ import TechnicalSkills from "@/components/sections/TechnicalSkills.astro";
 import SoftSkills from "@/components/sections/SoftSkills.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
 import Projects from "@/components/sections/Projects.astro";
+import ThemeSwitch from "@/components/ThemeSwitch.astro";
 
 import { basics } from "@cv";
 const { name, label } = basics;
@@ -16,23 +17,50 @@ const { name, label } = basics;
 
 <Layout title={`${name} Portfolio - ${label}`}>
   <main
-    class="relative grid max-w-7xl gap-12 p-8 max-sm:py-16 md:grid-cols-6 md:p-16 xl:gap-24 print:max-w-none print:grid-cols-1 print:gap-6"
+    class="resume-sheet relative grid max-w-7xl gap-12 p-8 max-sm:py-16 md:grid-cols-6 md:p-16 xl:gap-20 print:max-w-none print:grid-cols-1 print:gap-6 print:shadow-none"
   >
+    <div class="no-print absolute right-4 top-4 z-10 flex items-center gap-1 md:right-6 md:top-6">
+      <button
+        type="button"
+        data-print-button
+        class="grid size-10 place-items-center rounded-full text-skin-muted transition hover:bg-skin-button-accent/15 hover:text-skin-hue"
+        title="Print resume"
+        aria-label="Print resume"
+      >
+        <svg
+          class="size-5"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.8"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 9V3h12v6" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 14h12v7H6z" />
+        </svg>
+      </button>
+      <ThemeSwitch />
+    </div>
+
     <div
-      class="space-y-6 md:col-span-2 print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
+      class="space-y-8 md:col-span-2 print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
     >
       <Hero />
-      <About />
-    </div>
-    <div
-      class="space-y-12 md:col-span-4 print:col-span-1 print:grid print:grid-cols-4 print:gap-2 print:space-y-0"
-    >
-      <Experience className="print:col-span-3" />
-      <Projects className="print:hidden" />
       <TechnicalSkills className="print:hidden" />
       <SoftSkills className="print:hidden" />
-      <Education className="order-first" />
+      <Education />
     </div>
+    <div
+      class="space-y-10 md:col-span-4 print:col-span-1 print:grid print:grid-cols-4 print:gap-2 print:space-y-0"
+    >
+      <About className="order-first" />
+      <Experience className="print:col-span-3" />
+    </div>
+    <Projects className="col-span-full print:hidden" />
+    <p class="no-print col-span-full text-center text-xs text-skin-muted">
+      Living, learning, and leveling up one day at a time
+    </p>
   </main>
 
   <KeyboardManager />
@@ -47,4 +75,14 @@ const { name, label } = basics;
     margin: auto;
     width: 100%;
   }
+
+  .resume-sheet {
+    @apply bg-white shadow-2xl shadow-slate-900/10 dark:bg-skin-surface dark:shadow-black/30 md:my-12 md:rounded-lg print:bg-transparent;
+  }
 </style>
+
+<script>
+  document.querySelector("[data-print-button]")?.addEventListener("click", () => {
+    window.print();
+  });
+</script>

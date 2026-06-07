@@ -13,8 +13,8 @@ const processedSummary = summary.replace(
 );
 ---
 
-<Section title="About">
-  <p>
+<Section className={Astro.props.className} title="About">
+  <p class="text-sm leading-6 text-skin-muted">
     {processedSummary}
   </p>
 </Section>

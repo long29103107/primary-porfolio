@@ -9,7 +9,7 @@ import GitHub from "@/icons/GitHub.astro";
 import WorldMap from "@/icons/WorldMap.astro";
 import type { SocialIcon } from "@/types";
 
-const { name, label, image, location, profiles, phone, email } = basics;
+const { name, label, image, location, profiles, phone, email, url } = basics;
 const { city, region } = location;
 
 const SOCIAL_ICONS: SocialIcon = {
@@ -20,12 +20,19 @@ const SOCIAL_ICONS: SocialIcon = {
 
 const linkedInfo = profiles.find(({ network }) => network === "LinkedIn");
 const linkedUrl = linkedInfo?.url;
-
-const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
+const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" | ");
 ---
 
 <Section>
-  <div class="flex flex-col-reverse gap-8">
+  <div class="flex flex-col gap-8">
+    <figure class="relative mx-auto w-fit print:hidden">
+      <div
+        class="absolute -left-12 -top-8 size-full rounded-full bg-skin-button-accent/20 dark:bg-skin-button-muted"
+      >
+      </div>
+      <img class="relative z-10 shadow-lg shadow-slate-900/10" src={image} alt={name} />
+    </figure>
+
     <div class="info">
       <h1>{name}</h1>
       <h2>{label}</h2>
@@ -33,31 +40,22 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
         <WorldMap />
         {city}, {region}
       </div>
-      <footer class="print">
-        {printInfo}
-      </footer>
-      <footer class="no-print">
+
+      <footer class="print">{printInfo}</footer>
+      <footer class="no-print contact-list" aria-label="Contact links">
         {
           email && (
-            <a
-              href={`mailto:${email}`}
-              title={`Email ${name} at ${email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={`mailto:${email}`} title={`Email ${name} at ${email}`}>
               <Mail />
+              <span>{email}</span>
             </a>
           )
         }
         {
           phone && (
-            <a
-              href={`tel:${phone}`}
-              title={`Call ${name} at ${phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={`tel:${phone}`} title={`Call ${name} at ${phone}`}>
               <Phone />
+              <span>{phone}</span>
             </a>
           )
         }
@@ -66,105 +64,70 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ");
             const Icon = SOCIAL_ICONS[network];
 
             return (
-              <a
-                href={url}
-                title={`Visit ${name} profile on ${network}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon />
-              </a>
+              Icon && (
+                <a href={url} title={`Visit ${name} profile on ${network}`} target="_blank" rel="noopener noreferrer">
+                  <Icon />
+                  <span>{url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
+                </a>
+              )
             );
           })
         }
+        {
+          url && (
+            <a href={url} title={`Visit ${name} website`} target="_blank" rel="noopener noreferrer">
+              <WorldMap />
+              <span>{url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
+            </a>
+          )
+        }
       </footer>
     </div>
-    <figure class="relative w-fit print:hidden">
-      <img class="shadow-skin-hues shadow-lg" src={image} alt={name} />
-      <div class="pointer-events-none absolute -inset-2">
-        <div
-          class="absolute -inset-y-8 right-0 w-px bg-skin-hue/50 [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"
-        >
-        </div>
-        <div
-          class="absolute -inset-y-8 left-0 w-px bg-skin-hue/50 [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]"
-        >
-        </div>
-        <div
-          class="absolute -inset-x-8 bottom-0 h-px bg-skin-hue/50 [mask-image:linear-gradient(to_left,transparent,white_4rem,white_calc(100%-4rem),transparent)]"
-        >
-        </div>
-        <div
-          class="absolute -inset-x-8 top-0 h-px bg-skin-hue/50 [mask-image:linear-gradient(to_left,transparent,white_4rem,white_calc(100%-4rem),transparent)]"
-        >
-        </div>
-      </div>
-    </figure>
   </div>
 </Section>
 
 <style>
   .info {
-    @apply flex flex-col gap-1 pr-8 print:gap-0 print:pr-0;
+    @apply flex flex-col gap-2 print:gap-0;
   }
 
   h1 {
-    @apply text-4xl font-bold print:text-3xl;
+    @apply text-4xl font-black uppercase leading-none print:text-3xl;
   }
 
   h2 {
-    @apply text-balance text-base text-skin-muted print:text-lg;
+    @apply text-balance text-lg font-bold text-skin-muted print:text-lg;
   }
 
   img {
-    @apply aspect-square w-48 rounded-2xl bg-cover;
+    @apply aspect-square w-36 rounded-full object-cover sm:w-40;
   }
 
-  span {
-    @apply flex items-center gap-1 text-xs text-skin-hue;
+  .contact-list {
+    @apply mt-2 flex flex-col items-start gap-2 text-sm;
   }
 
-  footer {
-    @apply mt-2 flex gap-1 text-sm;
+  .contact-list a {
+    @apply inline-flex max-w-full items-center gap-2 rounded-md p-1 text-skin-muted transition-all duration-300 hover:bg-skin-button-accent/15 hover:text-skin-hue;
   }
 
-  footer a,
-  footer button {
-    @apply inline-flex size-8 items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent hover:text-skin-inverted;
+  .contact-list span {
+    @apply min-w-0 break-all;
   }
 
-  @media (width <= 700px) {
-    .container {
-      flex-direction: column-reverse;
-    }
-
-    .info {
-      @apply pr-0 md:items-center md:justify-center;
-    }
-
-    figure {
-      @apply flex md:items-center md:justify-center;
-    }
-
-    h2 {
-      text-wrap: balance;
-    }
-
-    figure {
-      @apply md:mx-auto;
-    }
+  .contact-list a :global(svg),
+  .info > div :global(svg) {
+    @apply size-5 shrink-0 text-skin-hue;
   }
 </style>
 
 <script>
   const themeSwitch = document.getElementById("themeSwitch") as HTMLInputElement | null;
 
-  // Deshabilitar modo oscuro al imprimir
   window.addEventListener("beforeprint", () => {
     document.documentElement.classList.remove("dark");
   });
 
-  // Restaurar el modo oscuro después de imprimir
   window.addEventListener("afterprint", () => {
     if (themeSwitch?.checked) {
       document.documentElement.classList.add("dark");

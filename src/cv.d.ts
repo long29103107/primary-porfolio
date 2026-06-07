@@ -11,6 +11,8 @@ export interface CV {
   interests: Array<Interests>;
   references: Array<References>;
   projects: Array<Projects>;
+  technicalSkills: Array<TechnicalSkill>;
+  softSkills: Array<string>;
 }
 
 interface Basics {
@@ -21,6 +23,7 @@ interface Basics {
   phone: string;
   url: string;
   summary: string;
+  theme: string;
   location: Location;
   profiles: Array<Profiles>;
 }
@@ -46,7 +49,12 @@ interface Work {
   startDate: DateStr;
   endDate: DateStr | null;
   summary: string;
+  location: string;
+  location_type: string;
   highlights: Highlight;
+  responsibilities: Highlight;
+  achievements: Highlight;
+  skills: Array<string>;
 }
 
 type DateStr = `${string}-${string}-${string}`;
@@ -65,6 +73,11 @@ interface Skills {
   name: string;
   level: string;
   keywords: Array<string>;
+}
+
+interface TechnicalSkill {
+  name: string;
+  code: string;
 }
 
 interface Awards {
@@ -142,4 +155,4 @@ interface References {
   reference: string;
 }
 
-type Highlight = Array<String>;
+type Highlight = Array<string>;

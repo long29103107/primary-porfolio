@@ -34,16 +34,16 @@ const SKILLS_ICONS: Record<string, any> = {
 };
 ---
 
-<Section className={Astro.props.className} title="Techinical skills">
+<Section className={Astro.props.className} title="Technical Skills">
   <ul
-    class="inline-flex flex-wrap gap-6 [&>li>svg]:size-5 [&>li>svg]:text-skin-hue [&>li]:text-sm"
+    class="inline-flex flex-wrap gap-2 [&>li>svg]:size-4 [&>li>svg]:text-skin-hue [&>li]:text-sm"
   >
     {
       technicalSkills.length > 0 &&
         technicalSkills.map(({ code, name }) => {
           const Icon = SKILLS_ICONS[code];
           return (
-            <li class="flex items-center gap-1 rounded-md border border-solid border-skin-hue/20 bg-skin-button-accent/20 px-2 py-0.5 text-xs text-skin-muted print:border-none print:bg-transparent print:p-0 print:text-zinc-800 dark:border-skin-muted dark:bg-skin-button-muted dark:text-skin-on-muted">
+            <li class="flex min-h-7 items-center gap-1 rounded-full bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800 dark:bg-skin-button-muted">
               {Icon && <Icon />} <span>{name}</span>
             </li>
           );
