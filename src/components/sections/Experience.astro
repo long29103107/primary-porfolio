@@ -1,6 +1,28 @@
 ---
 import Section from "../Section.astro";
 import { work } from "@cv";
+import ASPNETCore from "@/icons/ASPNETCore.astro";
+import RabbitMQ from "@/icons/RabbitMQ.astro";
+import SQLServer from "@/icons/SQLServer.astro";
+import EntityFramework from "@/icons/EntityFramework.astro";
+import gRPC from "@/icons/gRPC.astro";
+import CSharp from "@/icons/CSharp.astro";
+import Jenkins from "@/icons/Jenkins.astro";
+import GitHub from "@/icons/GitHub.astro";
+
+const SKILL_ICONS: Record<string, any> = {
+  "ASP.NET Core API": ASPNETCore,
+  "ASP.NET Core": ASPNETCore,
+  ".NET Core": ASPNETCore,
+  RabbitMQ,
+  "SQL Server": SQLServer,
+  "Entity Framework": EntityFramework,
+  "Entity Framework Core": EntityFramework,
+  gRPC,
+  "C#": CSharp,
+  Jenkins,
+  GitHub,
+};
 
 function formatMonthYear(date: string | null) {
   if (!date) return "Present";
@@ -15,6 +37,8 @@ const companies = work.reduce(
   (items, job) => {
     const existing = items.find((item) => item.name === job.name);
     const responsibilities = job.responsibilities ?? [];
+    const achievements = job.achievements ?? [];
+    const highlights = job.highlights ?? [];
     const skills = job.skills ?? [];
 
     if (existing) {
@@ -27,6 +51,8 @@ const companies = work.reduce(
             : existing.endDate;
       existing.roles.push(job.position);
       existing.responsibilities.push(...responsibilities);
+      existing.achievements.push(...achievements);
+      existing.highlights.push(...highlights);
       existing.skills.push(...skills);
       return items;
     }
@@ -40,6 +66,8 @@ const companies = work.reduce(
       endDate: job.endDate,
       roles: [job.position],
       responsibilities: [...responsibilities],
+      achievements: [...achievements],
+      highlights: [...highlights],
       skills: [...skills],
     });
 
@@ -54,6 +82,8 @@ const companies = work.reduce(
     endDate: string | null;
     roles: string[];
     responsibilities: string[];
+    achievements: string[];
+    highlights: string[];
     skills: string[];
   }>,
 );
@@ -68,6 +98,8 @@ const sortedCompanies = companies.sort((a, b) => Number(new Date(b.startDate)) -
         const dates = `${formatMonthYear(company.startDate)} - ${formatMonthYear(company.endDate)}`;
         const uniqueRoles = [...new Set(company.roles)];
         const uniqueResponsibilities = [...new Set(company.responsibilities)].slice(0, 7);
+        const uniqueAchievements = [...new Set(company.achievements)].slice(0, 5);
+        const uniqueHighlights = [...new Set(company.highlights)].slice(0, 4);
         const uniqueSkills = [...new Set(company.skills)].slice(0, 14);
 
         return (
@@ -98,19 +130,61 @@ const sortedCompanies = companies.sort((a, b) => Number(new Date(b.startDate)) -
                   {company.location}
                 </p>
 
-                <ul class="responsibility-list mt-8">
-                  {uniqueResponsibilities.map((responsibility) => (
-                    <li set:html={responsibility} />
-                  ))}
-                </ul>
+                <div class="career-detail mt-8">
+                  {uniqueResponsibilities.length > 0 && (
+                    <div>
+                      <h4>Responsibilities</h4>
+                      <ul class="career-list">
+                        {uniqueResponsibilities.map((responsibility) => (
+                          <li set:html={responsibility} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {uniqueAchievements.length > 0 && (
+                    <div>
+                      <h4>Achievements</h4>
+                      <ul class="career-list">
+                        {uniqueAchievements.map((achievement) => (
+                          <li set:html={achievement} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {uniqueHighlights.length > 0 && (
+                    <div>
+                      <h4>Highlights</h4>
+                      <ul class="career-list">
+                        {uniqueHighlights.map((highlight) => (
+                          <li set:html={highlight} />
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
 
                 {uniqueSkills.length > 0 && (
                   <div class="mt-6 print:hidden">
                     <h4 class="mb-3 text-base font-black text-skin-base">Tools &amp; platforms I use:</h4>
                     <ul class="flex flex-wrap gap-2">
-                      {uniqueSkills.map((skill) => (
-                        <li class="tool-chip">{skill}</li>
-                      ))}
+                      {uniqueSkills.map((skill) => {
+                        const Icon = SKILL_ICONS[skill];
+
+                        return (
+                          <li class="tool-chip">
+                            {Icon ? (
+                              <Icon />
+                            ) : (
+                              <svg class="size-4" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            )}
+                            <span>{skill}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}
@@ -142,16 +216,28 @@ const sortedCompanies = companies.sort((a, b) => Number(new Date(b.startDate)) -
     border-left-color: rgb(100 116 139) !important;
   }
 
-  .responsibility-list {
-    @apply ml-5 max-w-3xl list-disc space-y-3 text-base font-semibold leading-7 text-skin-base;
+  .career-detail {
+    @apply grid max-w-3xl gap-6;
   }
 
-  .responsibility-list li::marker {
+  .career-detail h4 {
+    @apply mb-3 text-base font-black text-skin-base;
+  }
+
+  .career-list {
+    @apply ml-5 list-disc space-y-3 text-base font-semibold leading-7 text-skin-base;
+  }
+
+  .career-list li::marker {
     @apply text-skin-hue;
   }
 
   .tool-chip {
-    @apply inline-flex min-h-7 items-center rounded-md border border-skin-hue/75 bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue shadow-sm shadow-skin-hue/5 dark:bg-skin-button-muted;
+    @apply inline-flex min-h-7 items-center gap-1.5 rounded-md border border-skin-hue/75 bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue shadow-sm shadow-skin-hue/5 dark:bg-skin-button-muted;
+  }
+
+  .tool-chip :global(svg) {
+    @apply size-4 shrink-0;
   }
 
   @media (width <= 768px) {

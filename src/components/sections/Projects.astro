@@ -2,6 +2,16 @@
 import Git from "@/icons/git.astro";
 import Arrow from "@/icons/Arrow.astro";
 import Section from "../Section.astro";
+import ASPNETCore from "@/icons/ASPNETCore.astro";
+import CSharp from "@/icons/CSharp.astro";
+import GitHub from "@/icons/GitHub.astro";
+import React from "@/icons/react.astro";
+import TypeScript from "@/icons/type.astro";
+import RabbitMQ from "@/icons/RabbitMQ.astro";
+import SQLServer from "@/icons/SQLServer.astro";
+import EntityFramework from "@/icons/EntityFramework.astro";
+import gRPC from "@/icons/gRPC.astro";
+import Jenkins from "@/icons/Jenkins.astro";
 
 import { projects, work } from "@cv";
 
@@ -13,9 +23,34 @@ const workProjects = work.map((job) => ({
   highlights: job.achievements ?? job.highlights ?? [],
   skills: job.skills ?? [],
 }));
+
+const personalProjectSkillMap: Record<string, string[]> = {
+  NETDevTool: ["ASP.NET Core", "OpenAPI", "Swagger", "JWT", "React", "LLM"],
+  CachedRepository: ["C#", "Redis", "Scrutor", "Repository Pattern", "Unit of Work"],
+  "Portal Client": ["Bun", "React 19", "TypeScript", "Keycloak", "Dark Mode"],
+  "GitOps Flow": ["GitHub Actions", "GHCR", "ArgoCD", "Helm", "Kubernetes", "Traefik"],
+};
+
+const TAG_ICONS: Record<string, any> = {
+  "ASP.NET Core": ASPNETCore,
+  "ASP.NET Core API": ASPNETCore,
+  "C#": CSharp,
+  GitHub: GitHub,
+  "GitHub Actions": GitHub,
+  React,
+  "React 19": React,
+  TypeScript,
+  RabbitMQ,
+  "SQL Server": SQLServer,
+  "Entity Framework": EntityFramework,
+  "Entity Framework Core": EntityFramework,
+  gRPC,
+  Jenkins,
+};
+
 ---
 
-<Section className={Astro.props.className} title="Projects">
+<Section className={["projects-section", Astro.props.className].filter(Boolean).join(" ")} title="Projects">
   <div class="grid gap-8">
     <div class="project-column">
       <h4>Work Projects</h4>
@@ -41,7 +76,7 @@ const workProjects = work.map((job) => ({
                 </div>
               </div>
 
-              <p class="py-3 text-sm text-skin-muted" set:html={description} />
+              <p class="py-3 text-base font-semibold leading-7 text-skin-base" set:html={description} />
 
               {highlights.length > 0 && (
                 <ul class="project-list">
@@ -53,9 +88,22 @@ const workProjects = work.map((job) => ({
 
               {skills.length > 0 && (
                 <ul class="mt-3 flex flex-wrap gap-2">
-                  {skills.slice(0, 6).map((skill) => (
-                    <li class="skill-chip">{skill}</li>
-                  ))}
+                  {skills.slice(0, 6).map((skill) => {
+                    const Icon = TAG_ICONS[skill];
+
+                    return (
+                      <li class="skill-chip">
+                        {Icon ? (
+                          <Icon />
+                        ) : (
+                          <svg class="size-4" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        )}
+                        <span>{skill}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </article>
@@ -107,11 +155,31 @@ const workProjects = work.map((job) => ({
                 )}
               </div>
 
-              <p class="py-3 text-sm text-skin-muted">{description}</p>
+              <p class="py-3 text-base font-semibold leading-7 text-skin-base">{description}</p>
+
               <ul class="project-list">
                 {highlights.map((highlight) => (
                   <li>{highlight}</li>
                 ))}
+              </ul>
+
+              <ul class="mt-3 flex flex-wrap gap-2">
+                {(personalProjectSkillMap[name] ?? []).map((skill) => {
+                  const Icon = TAG_ICONS[skill];
+
+                  return (
+                    <li class="project-tag">
+                      {Icon ? (
+                        <Icon />
+                      ) : (
+                        <svg class="size-4" viewBox="0 0 24 24" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      )}
+                      <span>{skill}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </article>
           ))
@@ -122,12 +190,16 @@ const workProjects = work.map((job) => ({
 </Section>
 
 <style>
+  :global(.projects-section > div:first-child h3) {
+    @apply text-3xl font-black leading-none;
+  }
+
   .project-column {
     @apply grid content-start gap-4;
   }
 
   .project-column h4 {
-    @apply text-base font-black text-skin-base;
+    @apply text-xl font-black text-skin-base;
   }
 
   .project-card {
@@ -135,11 +207,11 @@ const workProjects = work.map((job) => ({
   }
 
   .project-card h5 {
-    @apply text-base font-black;
+    @apply text-lg font-black;
   }
 
   .project-list {
-    @apply ml-4 list-disc space-y-1 text-sm text-skin-muted;
+    @apply ml-5 list-disc space-y-2 text-base font-semibold leading-7 text-skin-base;
   }
 
   .project-list li::marker {
@@ -147,6 +219,15 @@ const workProjects = work.map((job) => ({
   }
 
   .skill-chip {
-    @apply inline-flex min-h-7 items-center rounded-full bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue dark:bg-skin-button-muted;
+    @apply inline-flex min-h-7 items-center gap-1.5 rounded-full bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue dark:bg-skin-button-muted;
+  }
+
+  .project-tag {
+    @apply inline-flex min-h-7 items-center gap-1.5 rounded-full border border-skin-hue/40 bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue dark:bg-skin-button-muted;
+  }
+
+  .skill-chip :global(svg),
+  .project-tag :global(svg) {
+    @apply size-4 shrink-0;
   }
 </style>

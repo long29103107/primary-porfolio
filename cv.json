@@ -6,7 +6,7 @@
     "email": "long29103107@gmail.com",
     "phone": "+84 344 066 288",
     "url": "https://portfolio.longthedragon.site/",
-    "summary": "Backend-focused .NET Developer with {{ yoe }} years of experience building stable and easy-to-maintain systems. I like solving challenging problems, improving system performance, and using best practices in real projects. I am a self-motivated and responsible developer who is always learning, with the goal of becoming a senior developer and contributing to meaningful products.",
+    "summary": "Backend-focused .NET Developer with 4 years of experience building scalable, maintainable, and reliable systems. I approach software development with a product-oriented mindset, focusing not only on technical solutions but also on delivering long-term value that aligns with business objectives. As a proactive, responsible, and self-motivated developer, I continuously learn and adapt to new technologies to grow both technically and professionally. My goal is to become a Senior Developer and contribute to meaningful products that create value for users and businesses.",
     "theme": "default",
     "location": {
       "address": "58/5D, Street No. 9, Linh Tay Ward, Thu Duc City",
@@ -39,13 +39,14 @@
       "endDate": null,
       "summary": "<b>BLogic Dashboard</b> is a support application designed for <b>POS systems</b>. It helps agents manage merchants through a hierarchical model, create support tickets, and generate registration forms using <b>DocuSign</b>. It also integrates with external systems such as <b>TSYS</b> to handle legal documentation.",
       "highlights": [
-        "Developing and maintaining web applications using .NET Core, C#, and SQL Server. Collaborating with the team to implement new features and fix bugs."
+        "Built and maintained production-grade .NET applications for POS support, merchant operations, and document workflows."
       ],
       "responsibilities": [
-        "Translated business requirements into technical solutions and planned modular development tasks.",
-        "Designed database schema and developed scalable modules with optimized SQL queries.",
-        "Built and maintained CI/CD pipelines using Jenkins for automated deployment to Linux environments.",
-        "Integrated TSYS payment gateway, ensuring secure and reliable transaction processing."
+        "Translated business requirements into modular backend features.",
+        "Designed schemas and optimized SQL queries for scalable modules.",
+        "Led project delivery and mentored developers through reviews and technical guidance.",
+        "Built Jenkins CI/CD pipelines for Linux deployments.",
+        "Integrated TSYS, DocuSign, S3, and webhook-based workflows."
       ],
       "skills": [
         "ASP.NET Core API",
@@ -65,9 +66,9 @@
         "Webhooks"
       ],
       "achievements": [
-        "Delivered end-to-end payment integrations, gaining deep understanding of payment processing workflows.",
-        "Implemented DocuSign integration to enable secure and streamlined electronic signature processes.",
-        "Built scalable PDF rendering pipelines and integrated Amazon S3 for reliable document storage."
+        "Delivered reliable payment and document integration flows.",
+        "Streamlined e-signature processes with DocuSign.",
+        "Built scalable PDF generation and S3 storage pipelines."
       ]
     },
     {
@@ -80,17 +81,17 @@
       "endDate": "2025-03-01",
       "summary": "<b>WECRM</b> is a customer relationship management system that allows vehicle management and reminds users to perform maintenance services at dealerships.",
       "highlights": [
-        "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
+        "Enhanced CRM workflows for dealership vehicle and service management."
       ],
       "responsibilities": [
-        "Collaborated with stakeholders to define requirements and implementation plans.",
-        "Maintained and refactored codebase, fixed bugs, and optimized database queries.",
-        "Applied best practices to improve system performance and code quality."
+        "Clarified requirements and delivery scope with stakeholders.",
+        "Refactored and stabilized backend services.",
+        "Optimized database queries and API performance."
       ],
       "achievements": [
-        "Delivered a vehicle management and maintenance scheduling feature.",
-        "Built strong domain knowledge in CRM systems (customer lifecycle, lead management, sales workflows).",
-        "Improved API performance and reliability through advanced C# and query optimization."
+        "Delivered vehicle and maintenance scheduling features.",
+        "Strengthened CRM and dealership domain knowledge.",
+        "Improved backend reliability with C# and SQL optimization."
       ],
       "skills": [
         "ASP.NET Core API",
@@ -118,19 +119,19 @@
       "endDate": "2024-09-01",
       "summary": "<b>Promotion Planning</b> is a pricing management module within the manufacturing domain that helps users manage and optimize product pricing for supermarkets in Australia and New Zealand.",
       "highlights": [
-        "Contributed to a major project that streamlined internal workflows, improving efficiency by 30%"
+        "Supported pricing and promotion workflows for ANZ retail operations."
       ],
       "responsibilities": [
-        "Collaborated with the team to define requirements and implementation plans.",
-        "Deployed, maintained, refactored, and resolved production issues.",
-        "Reviewed and managed code changes using Bitbucket workflows.",
-        "Managed Azure Pipelines, IIS web servers, and database operations."
+        "Planned implementation tasks with the development team.",
+        "Maintained and refactored production services.",
+        "Handled production issues and code reviews.",
+        "Managed Azure Pipelines, IIS, and database operations."
       ],
       "achievements": [
-        "Delivered enhanced authentication features, improving system security.",
-        "Developed domain expertise in pricing systems, including product pricing, promotions, and inventory management.",
-        "Improved API performance and reliability through advanced C# and database query optimization.",
-        "Integrated SharePoint for storing and managing generated reports in a centralized document system."
+        "Improved authentication and system security.",
+        "Built expertise in pricing, promotions, and inventory.",
+        "Improved API reliability with C# and SQL optimization.",
+        "Integrated SharePoint for centralized report storage."
       ],
       "skills": [
         "ASP.NET Core API",

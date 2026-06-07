@@ -17,10 +17,10 @@
     --color-fill: 248, 250, 252; /* slate-50 */
     --color-surface: 248, 250, 252;
     --muted: 226, 232, 240; /* slate-200 */
-    --color: 109, 93, 252; /* violet */
-    --color-hue-hover: 91, 76, 219;
-    --color-button-accent: 109, 93, 252;
-    --color-button-accent-hover: 124, 102, 255;
+    --color: 37, 99, 235; /* blue-600 #2563EB */
+    --color-hue-hover: 29, 78, 216; /* blue-700 */
+    --color-button-accent: 37, 99, 235;
+    --color-button-accent-hover: 59, 130, 246; /* blue-500 */
     --color-button-muted: 241, 245, 249; /* slate-100 */
     [data-theme="blue"],
     [data-theme="red"],
@@ -34,10 +34,10 @@
       --color-fill: 248, 250, 252;
       --color-surface: 248, 250, 252;
       --muted: 226, 232, 240;
-      --color: 109, 93, 252;
-      --color-hue-hover: 91, 76, 219;
-      --color-button-accent: 109, 93, 252;
-      --color-button-accent-hover: 124, 102, 255;
+      --color: 37, 99, 235;
+      --color-hue-hover: 29, 78, 216;
+      --color-button-accent: 37, 99, 235;
+      --color-button-accent-hover: 59, 130, 246;
       --color-button-muted: 241, 245, 249;
     }
   }
@@ -50,10 +50,10 @@
     --color-fill: 1, 4, 9; /* #010409 */
     --color-surface: 6, 12, 23; /* #060c17 */
     --muted: 23, 32, 51; /* #172033 */
-    --color: 167, 139, 250; /* violet-400 */
-    --color-hue-hover: 196, 181, 253; /* violet-300 */
-    --color-button-accent: 139, 92, 246; /* violet-500 */
-    --color-button-accent-hover: 167, 139, 250; /* violet-400 */
+    --color: 96, 165, 250; /* blue-400 */
+    --color-hue-hover: 147, 197, 253; /* blue-300 */
+    --color-button-accent: 37, 99, 235; /* blue-600 */
+    --color-button-accent-hover: 59, 130, 246; /* blue-500 */
     --color-button-muted: 10, 16, 26; /* #0a101a chip */
     [data-theme="blue"],
     [data-theme="red"],
@@ -67,10 +67,10 @@
       --color-fill: 1, 4, 9;
       --color-surface: 6, 12, 23;
       --muted: 23, 32, 51;
-      --color: 167, 139, 250;
-      --color-hue-hover: 196, 181, 253;
-      --color-button-accent: 139, 92, 246;
-      --color-button-accent-hover: 167, 139, 250;
+      --color: 96, 165, 250;
+      --color-hue-hover: 147, 197, 253;
+      --color-button-accent: 37, 99, 235;
+      --color-button-accent-hover: 59, 130, 246;
       --color-button-muted: 10, 16, 26;
     }
   }
