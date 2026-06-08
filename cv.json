@@ -230,8 +230,48 @@
       "name": "gRPC"
     },
     {
+      "code": "SignalR",
+      "name": "SignalR"
+    },
+    {
       "code": "Jenkins",
       "name": "Jenkins"
+    },
+    {
+      "code": "Codex",
+      "name": "Codex"
+    },
+    {
+      "code": "ClaudeCode",
+      "name": "Claude Code"
+    },
+    {
+      "code": "ChatGPT",
+      "name": "ChatGPT"
+    },
+    {
+      "code": "Cursor",
+      "name": "Cursor"
+    },
+    {
+      "code": "Docker",
+      "name": "Docker"
+    },
+    {
+      "code": "Ubuntu",
+      "name": "Ubuntu"
+    },
+    {
+      "code": "Redis",
+      "name": "Redis"
+    },
+    {
+      "code": "AzurePipelines",
+      "name": "Azure Pipelines"
+    },
+    {
+      "code": "AmazonS3",
+      "name": "Amazon S3"
     }
   ],
   "languages": [
@@ -258,6 +298,10 @@
       "name": "NETDevTool",
       "isActive": true,
       "description": "In-app API Explorer for ASP.NET Core using OpenAPI/Swagger.",
+      "demoImages": [
+        "/personal-project/net-devtool/image-6.png",
+        "/personal-project/net-devtool/image-7.png"
+      ],
       "highlights": [
         "Published as NuGet package (LonG.DevTool)",
         "Test APIs with JWT, query, body",
@@ -271,6 +315,9 @@
       "name": "CachedRepository",
       "isActive": true,
       "description": "Repository pattern with Cache-Aside and decorator-based caching.",
+      "demoImages": [
+        "/personal-project/cached-repository/image-5.png"
+      ],
       "highlights": [
         "Attribute-based caching ([CachedEntity])",
         "Scrutor for repository decoration",
@@ -285,6 +332,10 @@
       "name": "Portal Client",
       "isActive": true,
       "description": "Internal service portal built with Bun and React for managing and accessing development tools in one place.",
+      "demoImages": [
+        "/personal-project/portal-client/image-1.png",
+        "/personal-project/portal-client/image-2.png"
+      ],
       "highlights": [
         "Built with Bun runtime, React 19, and TypeScript",
         "Centralized dashboard for internal tools and services",
@@ -299,6 +350,10 @@
       "name": "GitOps Flow",
       "isActive": true,
       "description": "GitOps-based CI/CD pipeline for microservices on Kubernetes.",
+      "demoImages": [
+        "/personal-project/gitops-flow/image-3.png",
+        "/personal-project/gitops-flow/image-4.png"
+      ],
       "highlights": [
         "CI with GitHub Actions (build, push GHCR, update GitOps repo)",
         "CD with ArgoCD auto-sync from GitOps repository",

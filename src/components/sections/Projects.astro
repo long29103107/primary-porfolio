@@ -161,7 +161,15 @@ const showPersonalProjects = type === "all" || type === "personal";
       <div class="grid gap-4 lg:grid-cols-2">
         {
           projects.map(
-            ({ url, description, highlights, name, isActive, github }) => (
+            ({
+              url,
+              description,
+              highlights,
+              name,
+              isActive,
+              github,
+              demoImages = [],
+            }) => (
               <article class="project-card">
                 <div class="flex items-start justify-between gap-4">
                   <div class="flex items-center gap-2">
@@ -239,6 +247,29 @@ const showPersonalProjects = type === "all" || type === "personal";
                     );
                   })}
                 </ul>
+
+                {demoImages.length > 0 && (
+                  <div class="project-attachments">
+                    {demoImages.map((image, index) => (
+                      <button
+                        class="project-attachment"
+                        type="button"
+                        data-project-demo
+                        data-image={image}
+                        data-images={JSON.stringify(demoImages)}
+                        data-index={index}
+                        data-alt={`${name} demo ${index + 1}`}
+                        title={`View ${name} demo ${index + 1}`}
+                      >
+                        <img
+                          src={image}
+                          alt={`${name} demo ${index + 1}`}
+                          loading="lazy"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </article>
             ),
           )
@@ -247,7 +278,173 @@ const showPersonalProjects = type === "all" || type === "personal";
     </div>
     }
   </div>
+
+  <dialog id="project-demo-dialog" class="project-demo-dialog">
+    <form method="dialog">
+      <button class="project-demo-close" type="submit" aria-label="Close">
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18 6 6 18M6 6l12 12"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </form>
+    <div class="project-demo-stage">
+      <button
+        id="project-demo-prev"
+        class="project-demo-nav project-demo-nav-prev"
+        type="button"
+        aria-label="Previous image"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m15 18-6-6 6-6"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <img id="project-demo-dialog-image" src="" alt="" />
+      <button
+        id="project-demo-next"
+        class="project-demo-nav project-demo-nav-next"
+        type="button"
+        aria-label="Next image"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m9 18 6-6-6-6"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </dialog>
 </Section>
+
+<script>
+  const dialog = document.getElementById(
+    "project-demo-dialog",
+  ) as HTMLDialogElement | null;
+  const dialogImage = document.getElementById(
+    "project-demo-dialog-image",
+  ) as HTMLImageElement | null;
+  const prevButton = document.getElementById(
+    "project-demo-prev",
+  ) as HTMLButtonElement | null;
+  const nextButton = document.getElementById(
+    "project-demo-next",
+  ) as HTMLButtonElement | null;
+
+  let currentImages: string[] = [];
+  let currentIndex = 0;
+  let currentAltPrefix = "Project demo";
+
+  const renderDialogImage = () => {
+    if (!dialogImage || currentImages.length === 0) return;
+
+    dialogImage.src = currentImages[currentIndex];
+    dialogImage.alt = `${currentAltPrefix} ${currentIndex + 1}`;
+
+    const hasMultipleImages = currentImages.length > 1;
+    prevButton?.toggleAttribute("hidden", !hasMultipleImages);
+    nextButton?.toggleAttribute("hidden", !hasMultipleImages);
+  };
+
+  const showImageAt = (index: number) => {
+    if (currentImages.length === 0) return;
+
+    currentIndex = (index + currentImages.length) % currentImages.length;
+    renderDialogImage();
+  };
+
+  document.querySelectorAll("[data-project-demo]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!dialog || !dialogImage) return;
+
+      const alt = button.getAttribute("data-alt") ?? "Project demo image";
+      const imagesData = button.getAttribute("data-images") ?? "[]";
+
+      try {
+        currentImages = JSON.parse(imagesData);
+      } catch {
+        currentImages = [];
+      }
+
+      if (currentImages.length === 0) {
+        currentImages = [button.getAttribute("data-image") ?? ""].filter(Boolean);
+      }
+
+      currentIndex = Number(button.getAttribute("data-index") ?? 0);
+      currentAltPrefix = alt.replace(/\s+\d+$/, "");
+      renderDialogImage();
+
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+    });
+  });
+
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  prevButton?.addEventListener("click", () => {
+    showImageAt(currentIndex - 1);
+  });
+
+  nextButton?.addEventListener("click", () => {
+    showImageAt(currentIndex + 1);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!dialog?.open || currentImages.length <= 1) return;
+
+    if (event.key === "ArrowLeft") {
+      showImageAt(currentIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      showImageAt(currentIndex + 1);
+    }
+  });
+
+  dialog?.addEventListener("close", () => {
+    if (!dialogImage) return;
+
+    dialogImage.src = "";
+    dialogImage.alt = "";
+    currentImages = [];
+    currentIndex = 0;
+  });
+</script>
 
 <style>
   :global(.projects-section > div:first-child h3) {
@@ -272,6 +469,70 @@ const showPersonalProjects = type === "all" || type === "personal";
 
   .project-list {
     @apply ml-5 list-disc space-y-2 text-base font-semibold leading-7 text-skin-base;
+  }
+
+  .project-attachments {
+    @apply mt-4 flex flex-wrap gap-2;
+  }
+
+  .project-attachment {
+    @apply relative block h-20 w-36 cursor-pointer overflow-hidden rounded-md border border-slate-300/80 bg-slate-950 p-0 transition hover:border-skin-hue/70 focus:outline-none focus:ring-2 focus:ring-skin-hue/50 dark:border-slate-700;
+  }
+
+  .project-attachment::after {
+    @apply absolute inset-0 bg-slate-950/30 transition content-[''];
+  }
+
+  .project-attachment:hover::after {
+    @apply bg-slate-950/10;
+  }
+
+  .project-attachment img {
+    @apply h-full w-full object-cover;
+  }
+
+  .project-demo-dialog {
+    @apply max-h-[94vh] w-[min(96vw,1200px)] overflow-hidden rounded-lg border border-slate-300 bg-white p-0 shadow-2xl dark:border-slate-700 dark:bg-slate-950;
+  }
+
+  .project-demo-dialog::backdrop {
+    @apply bg-slate-950/70;
+  }
+
+  .project-demo-dialog form {
+    @apply flex justify-end border-b border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950;
+  }
+
+  .project-demo-close {
+    @apply pointer-events-auto flex size-8 cursor-pointer items-center justify-center rounded-sm bg-white/95 text-slate-500 shadow-sm transition hover:bg-slate-100 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/40 dark:bg-slate-900/95 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white;
+  }
+
+  .project-demo-close svg {
+    @apply size-4;
+  }
+
+  .project-demo-stage {
+    @apply relative flex items-center justify-center;
+  }
+
+  .project-demo-stage img {
+    @apply max-h-[calc(94vh-57px)] w-full object-contain;
+  }
+
+  .project-demo-nav {
+    @apply absolute top-1/2 z-10 flex size-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-sm bg-white/90 text-slate-600 shadow-md transition hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/40 disabled:pointer-events-none disabled:opacity-40 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-white;
+  }
+
+  .project-demo-nav svg {
+    @apply size-6;
+  }
+
+  .project-demo-nav-prev {
+    @apply left-3;
+  }
+
+  .project-demo-nav-next {
+    @apply right-3;
   }
 
   .project-list li::marker {

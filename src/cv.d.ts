@@ -141,6 +141,7 @@ interface Projects {
   isActive: boolean;
   description: string;
   highlights: Highlight;
+  demoImages?: Array<string>;
   url: string;
   github?: string;
 }

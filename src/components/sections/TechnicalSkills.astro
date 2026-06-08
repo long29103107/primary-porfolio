@@ -36,22 +36,75 @@ const SKILLS_ICONS: Record<string, any> = {
   "C#": CSharp,
   Jenkins,
 };
+
+const SKILL_GROUPS = [
+  {
+    title: "Languages, Frameworks and Data",
+    codes: [
+      "C#",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "ASPNETCore",
+      "EntityFramework",
+      "gRPC",
+      "SignalR",
+      "React",
+      "Tailwind",
+      "SQLServer",
+      "RabbitMQ",
+      "Redis",
+    ],
+  },
+  {
+    title: "Tools",
+    codes: [
+      "Git",
+      "GitHub",
+      "Gitlab",
+      "Jenkins",
+      "Codex",
+      "ClaudeCode",
+      "ChatGPT",
+      "Cursor",
+      "Docker",
+      "Ubuntu",
+    ],
+  },
+  {
+    title: "Clouds",
+    codes: ["AzurePipelines", "AmazonS3"],
+  },
+].map((group) => ({
+  ...group,
+  skills: group.codes
+    .map((code) => technicalSkills.find((skill) => skill.code === code))
+    .filter((skill): skill is NonNullable<typeof skill> => Boolean(skill)),
+}));
 ---
 
 <Section className={Astro.props.className} title="Technical Skills">
-  <ul
-    class="inline-flex flex-wrap gap-2 [&>li>svg]:size-4 [&>li>svg]:text-skin-hue [&>li]:text-sm"
-  >
+  <div class="space-y-3">
     {
-      technicalSkills.length > 0 &&
-        technicalSkills.map(({ code, name }) => {
-          const Icon = SKILLS_ICONS[code];
-          return (
-            <li class="flex min-h-7 items-center gap-1 rounded-full bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800 dark:bg-skin-button-muted">
-              {Icon && <Icon />} <span>{name}</span>
-            </li>
-          );
-        })
+      SKILL_GROUPS.map(
+        ({ title, skills }) =>
+          skills.length > 0 && (
+            <div class="space-y-1.5">
+              <h3 class="text-sm font-extrabold text-skin-base">{title}:</h3>
+              <ul class="inline-flex flex-wrap gap-2 [&>li>svg]:size-4 [&>li>svg]:text-skin-hue [&>li]:text-sm">
+                {skills.map(({ code, name }) => {
+                  const Icon = SKILLS_ICONS[code];
+                  return (
+                    <li class="flex min-h-7 items-center gap-1 rounded-full bg-skin-button-accent/10 px-3 py-1 text-xs font-extrabold text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800 dark:bg-skin-button-muted">
+                      {Icon && <Icon />} <span>{name}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ),
+      )
     }
-  </ul>
+  </div>
 </Section>
