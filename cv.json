@@ -295,6 +295,21 @@
   ],
   "projects": [
     {
+      "name": "Long.Metadata",
+      "isActive": true,
+      "description": ".NET incremental source generator that creates strongly typed, Native AOT-friendly metadata registries at compile time.",
+      "demoImages": [],
+      "highlights": [
+        "Built with Roslyn incremental source generators",
+        "Avoids runtime reflection scanning for Native AOT scenarios",
+        "Generates property and type metadata lookup APIs",
+        "Supports class/interface inventory for DI and business registries",
+        "Includes sample consumer and Roslyn-based unit tests"
+      ],
+      "url": "https://long29103107.github.io/meta-gen/",
+      "github": "https://github.com/long29103107/meta-gen"
+    },
+    {
       "name": "NETDevTool",
       "isActive": true,
       "description": "In-app API Explorer for ASP.NET Core using OpenAPI/Swagger.",
