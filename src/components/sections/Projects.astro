@@ -205,6 +205,17 @@ const showPersonalProjects = type === "all" || type === "personal";
                       )}
                     </h5>
                   </div>
+                  {github && (
+                    <a
+                      class="project-github-link"
+                      href={github}
+                      title={`View ${name} on GitHub`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <GitHub />
+                    </a>
+                  )}
                 </div>
 
                 <p class="py-3 text-base font-semibold leading-7 text-skin-base">
@@ -465,6 +476,14 @@ const showPersonalProjects = type === "all" || type === "personal";
 
   .project-card h5 {
     @apply text-lg font-black;
+  }
+
+  .project-github-link {
+    @apply inline-flex size-8 shrink-0 items-center justify-center rounded-sm text-skin-muted transition hover:bg-skin-button-accent/10 hover:text-skin-hue focus:outline-none focus:ring-2 focus:ring-skin-hue/40;
+  }
+
+  .project-github-link :global(svg) {
+    @apply size-5;
   }
 
   .project-list {
