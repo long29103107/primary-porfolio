@@ -349,7 +349,8 @@
       "description": "Internal service portal built with Bun and React for managing and accessing development tools in one place.",
       "demoImages": [
         "/personal-project/portal-client/image-1.png",
-        "/personal-project/portal-client/image-2.png"
+        "/personal-project/portal-client/image-2.png",
+        "/personal-project/portal-client/image-3.png"
       ],
       "highlights": [
         "Built with Bun runtime, React 19, and TypeScript",
