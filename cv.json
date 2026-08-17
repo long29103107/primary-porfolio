@@ -37,7 +37,7 @@
       "url": "https://www.blogicsystems.com",
       "startDate": "2025-03-01",
       "endDate": null,
-      "summary": "<b>BLogic Dashboard</b> is a support application designed for <b>POS systems</b>. It helps agents manage merchants through a hierarchical model, create support tickets, and generate registration forms using <b>DocuSign</b>. It also integrates with external systems such as <b>TSYS</b> to handle legal documentation.",
+      "summary": "<b>BLogic Dashboard</b> is a support application designed for POS systems. It helps agents manage merchants through a hierarchical model, create support tickets, and generate registration forms using <b>DocuSign</b>. It also integrates with external systems such as <b>TSYS</b> to handle legal documentation.",
       "highlights": [
         "Built and maintained production-grade .NET applications for POS support, merchant operations, and document workflows."
       ],
@@ -67,8 +67,8 @@
       ],
       "achievements": [
         "Delivered reliable payment and document integration flows.",
-        "Streamlined e-signature processes with DocuSign.",
-        "Built scalable PDF generation and S3 storage pipelines."
+        "Streamlined <b>e-signature processes</b> with DocuSign.",
+        "Built scalable <b>PDF generation and S3 storage pipelines</b>."
       ]
     },
     {
@@ -79,7 +79,7 @@
       "url": "https://siliconstack.com.au/",
       "startDate": "2024-09-01",
       "endDate": "2025-03-01",
-      "summary": "<b>WECRM</b> is a customer relationship management system that allows vehicle management and reminds users to perform maintenance services at dealerships.",
+      "summary": "<b>WECRM</b> is a customer relationship management system that allows <b>vehicle management</b> and reminds users to perform maintenance services at dealerships.",
       "highlights": [
         "Enhanced CRM workflows for dealership vehicle and service management."
       ],
@@ -89,7 +89,7 @@
         "Optimized database queries and API performance."
       ],
       "achievements": [
-        "Delivered vehicle and maintenance scheduling features.",
+        "Delivered <b>vehicle and maintenance scheduling features</b>.",
         "Strengthened CRM and dealership domain knowledge.",
         "Improved backend reliability with C# and SQL optimization."
       ],
@@ -117,7 +117,7 @@
       "url": "https://siliconstack.com.au/",
       "startDate": "2022-02-01",
       "endDate": "2024-09-01",
-      "summary": "<b>Promotion Planning</b> is a pricing management module within the manufacturing domain that helps users manage and optimize product pricing for supermarkets in Australia and New Zealand.",
+      "summary": "<b>Promotion Planning</b> is a <b>pricing management module</b> within the manufacturing domain that helps users manage and optimize product pricing for supermarkets in Australia and New Zealand.",
       "highlights": [
         "Supported pricing and promotion workflows for ANZ retail operations."
       ],
@@ -125,13 +125,13 @@
         "Planned implementation tasks with the development team.",
         "Maintained and refactored production services.",
         "Handled production issues and code reviews.",
-        "Managed Azure Pipelines, IIS, and database operations."
+        "Managed <b>Azure Pipelines</b>, IIS, and database operations."
       ],
       "achievements": [
         "Improved authentication and system security.",
         "Built expertise in pricing, promotions, and inventory.",
         "Improved API reliability with C# and SQL optimization.",
-        "Integrated SharePoint for centralized report storage."
+        "Integrated <b>SharePoint</b> for centralized report storage."
       ],
       "skills": [
         "ASP.NET Core API",
@@ -295,13 +295,34 @@
   ],
   "projects": [
     {
+      "name": "Short Link",
+      "isActive": true,
+      "description": "<b>100% AI-first</b> developed self-hosted URL shortener with an ASP.NET Core API, React dashboard, click analytics, <b>API-key/session security</b>, and <b>SQLite-first storage</b> with optional PostgreSQL and Redis support.",
+      "demoImages": [
+        "/personal-project/short-link/image-1.png",
+        "/personal-project/short-link/image-2.png",
+        "/personal-project/short-link/image-3.png",
+        "/personal-project/short-link/image-4.png"
+      ],
+      "highlights": [
+        "Applied a <b>100% AI-first development workflow</b> from architecture and implementation to testing and documentation",
+        "Built a reusable <b>ShortenLink.Hosting</b> package for ASP.NET Core applications",
+        "Implemented short-link creation, inspection, deactivation, import, export, and redirects",
+        "Added <b>click analytics</b>, rate limiting, audit events, and asynchronous processing support",
+        "Delivered <b>Docker and Kubernetes deployment</b> configurations with GitHub Actions publishing",
+        "Built the web dashboard with React, TypeScript, and Vite"
+      ],
+      "url": "https://github.com/long29103107/portfolio-shorten-link",
+      "github": "https://github.com/long29103107/portfolio-shorten-link"
+    },
+    {
       "name": "Long.Metadata",
       "isActive": true,
-      "description": ".NET incremental source generator that creates strongly typed, Native AOT-friendly metadata registries at compile time.",
+      "description": "<b>.NET incremental source generator</b> that creates strongly typed, <b>Native AOT-friendly metadata registries</b> at compile time.",
       "demoImages": [],
       "highlights": [
-        "Built with Roslyn incremental source generators",
-        "Avoids runtime reflection scanning for Native AOT scenarios",
+        "Built with <b>Roslyn incremental source generators</b>",
+        "Avoids runtime reflection scanning for <b>Native AOT</b> scenarios",
         "Generates property and type metadata lookup APIs",
         "Supports class/interface inventory for DI and business registries",
         "Includes sample consumer and Roslyn-based unit tests"
@@ -312,15 +333,15 @@
     {
       "name": "NETDevTool",
       "isActive": true,
-      "description": "In-app API Explorer for ASP.NET Core using OpenAPI/Swagger.",
+      "description": "<b>In-app API Explorer</b> for ASP.NET Core using <b>OpenAPI/Swagger</b>.",
       "demoImages": [
         "/personal-project/net-devtool/image-6.png",
         "/personal-project/net-devtool/image-7.png"
       ],
       "highlights": [
-        "Published as NuGet package (LonG.DevTool)",
+        "Published as <b>NuGet package</b> (LonG.DevTool)",
         "Test APIs with JWT, query, body",
-        "Auto-fill request via LLM",
+        "Auto-fill request via <b>LLM</b>",
         "React SPA served via middleware"
       ],
       "url": "https://github.com/long29103107/NETDevTool",
@@ -329,16 +350,16 @@
     {
       "name": "CachedRepository",
       "isActive": true,
-      "description": "Repository pattern with Cache-Aside and decorator-based caching.",
+      "description": "Repository pattern with <b>Cache-Aside</b> and <b>decorator-based caching</b>.",
       "demoImages": [
         "/personal-project/cached-repository/image-5.png"
       ],
       "highlights": [
         "Attribute-based caching ([CachedEntity])",
         "Scrutor for repository decoration",
-        "Transaction-aware cache (Unit of Work)",
+        "<b>Transaction-aware cache</b> (Unit of Work)",
         "Configurable cache duration",
-        "Redis-ready for scaling"
+        "<b>Redis-ready</b> for scaling"
       ],
       "url": "https://github.com/long29103107/CachedRepository",
       "github": "https://github.com/long29103107/CachedRepository"
@@ -346,7 +367,7 @@
     {
       "name": "Portal Client",
       "isActive": true,
-      "description": "Internal service portal built with Bun and React for managing and accessing development tools in one place.",
+      "description": "Internal service portal built with <b>Bun</b> and React for managing and accessing development tools in one place.",
       "demoImages": [
         "/personal-project/portal-client/image-1.png",
         "/personal-project/portal-client/image-2.png",
@@ -356,7 +377,7 @@
         "Built with Bun runtime, React 19, and TypeScript",
         "Centralized dashboard for internal tools and services",
         "Searchable and categorized service organization",
-        "Authentication support via Keycloak (optional)",
+        "Authentication support via <b>Keycloak</b> (optional)",
         "Dark mode with system theme support"
       ],
       "url": "https://github.com/long29103107/portal-client",
@@ -365,15 +386,15 @@
     {
       "name": "GitOps Flow",
       "isActive": true,
-      "description": "GitOps-based CI/CD pipeline for microservices on Kubernetes.",
+      "description": "<b>GitOps-based CI/CD pipeline</b> for microservices on Kubernetes.",
       "demoImages": [
         "/personal-project/gitops-flow/image-3.png",
         "/personal-project/gitops-flow/image-4.png"
       ],
       "highlights": [
         "CI with GitHub Actions (build, push GHCR, update GitOps repo)",
-        "CD with ArgoCD auto-sync from GitOps repository",
-        "Helm-based reusable charts (DRY for multi-services)",
+        "<b>CD with ArgoCD auto-sync</b> from GitOps repository",
+        "<b>Helm-based reusable charts</b> (DRY for multi-services)",
         "Deployed on Kubernetes with Traefik ingress",
         "End-to-end flow: code → image → GitOps → deploy"
       ],

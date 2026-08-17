@@ -24,6 +24,15 @@ const workProjects = work.map((job) => ({
 }));
 
 const personalProjectSkillMap: Record<string, string[]> = {
+  "Short Link": [
+    "ASP.NET Core API",
+    "React",
+    "TypeScript",
+    "Docker",
+    "Kubernetes",
+    "GitHub Actions",
+  ],
+  "Long.Metadata": [".NET", "Roslyn", "Native AOT", "Source Generators", "C#"],
   NETDevTool: ["ASP.NET Core", "OpenAPI", "Swagger", "JWT", "React", "LLM"],
   CachedRepository: [
     "C#",
@@ -218,13 +227,14 @@ const showPersonalProjects = type === "all" || type === "personal";
                   )}
                 </div>
 
-                <p class="py-3 text-base font-semibold leading-7 text-skin-base">
-                  {description}
-                </p>
+                <p
+                  class="py-3 text-base font-semibold leading-7 text-skin-base"
+                  set:html={description}
+                />
 
                 <ul class="project-list">
                   {highlights.map((highlight) => (
-                    <li>{highlight}</li>
+                    <li set:html={highlight} />
                   ))}
                 </ul>
 
