@@ -13,7 +13,7 @@ function yearRange(startDate: string, endDate: string | null) {
   <ul class="grid gap-4">
     {
       education.map(({ institution, startDate, endDate, area, url, score }) => (
-        <li class="rounded-lg border border-skin-muted bg-skin-button-muted/35 p-4 dark:bg-skin-button-muted/60">
+        <li class="rounded-lg bg-skin-button-muted/35 p-4 dark:bg-skin-button-muted/60">
           <div class="flex flex-col gap-1 md:flex-row md:items-start md:justify-between">
             <h3 class="text-base font-black">
               <a class="text-skin-hue hover:text-skin-hue-hover" href={url} target="_blank">

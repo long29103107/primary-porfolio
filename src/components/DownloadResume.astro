@@ -1,0 +1,41 @@
+---
+const resumePath = "/Nguyen Hoang Long - .Net Developer.pdf";
+const resumeName = "Nguyen Hoang Long - .Net Developer.pdf";
+---
+
+<a
+  class="download-resume no-print"
+  href={resumePath}
+  download={resumeName}
+  aria-label="Download CV"
+>
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path
+      d="M12 3v11m0 0 4-4m-4 4-4-4M5 20h14"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+  <span class="download-tooltip" role="tooltip">Download CV</span>
+</a>
+
+<style>
+  .download-resume {
+    @apply relative inline-flex size-9 items-center justify-center rounded-full text-skin-hue transition hover:bg-skin-button-accent/15 hover:text-skin-hue-hover focus:outline-none focus:ring-2 focus:ring-skin-hue/40;
+  }
+
+  .download-resume svg {
+    @apply size-5;
+  }
+
+  .download-tooltip {
+    @apply pointer-events-none absolute right-0 top-full z-20 mt-2 translate-y-1 whitespace-nowrap rounded-md bg-slate-900 px-2.5 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition duration-200 dark:bg-slate-700;
+  }
+
+  .download-resume:hover .download-tooltip,
+  .download-resume:focus-visible .download-tooltip {
+    @apply translate-y-0 opacity-100;
+  }
+</style>
